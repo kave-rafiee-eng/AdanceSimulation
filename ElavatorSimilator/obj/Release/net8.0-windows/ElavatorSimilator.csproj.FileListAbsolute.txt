@@ -75,3 +75,9 @@ C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\bin\Releas
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\bin\Release\net8.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\bin\Release\net8.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Release\net8.0-windows\ElavatorSimilator.d-bfalse.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Release\net8.0-windows\ElavatorSimilator.sourcelink.json
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Release\net8.0-windows\Page1.g.cs
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Release\net8.0-windows\Page1.baml
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Release\net8.0-windows\SerialSelectorControl.g.cs
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Release\net8.0-windows\SerialSelectorControl.baml
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Release\net8.0-windows\GeneratedInternalTypeHelper.g.cs

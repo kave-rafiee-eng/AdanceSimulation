@@ -5,71 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElavatorSimilator"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+
+    
     <Grid>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-           
-            <RowDefinition Height="*"/>
-            
+            <RowDefinition Height="10*"/>
+
+            <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+        <!-- دکمه باز و بسته کردن منو -->
+        <ToggleButton x:Name="MenuToggleButton" Content="☰ Menu" Width="80" Height="auto" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" />
+
+        <!-- منوی درختی داخل Popup -->
+        <Popup Grid.Row="0" PlacementTarget="{Binding ElementName=MenuToggleButton}" 
+               Placement="Bottom"
+               StaysOpen="False"
+               IsOpen="{Binding IsChecked, ElementName=MenuToggleButton, Mode=TwoWay}">
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" Width="200" Height="300" >
+                <TreeView Name="MenuTreeView" SelectedItemChanged="MenuTreeView_SelectedItemChanged">
+                    <TreeViewItem Header="صفحه اول" Tag="Page1" />
+                    <TreeViewItem Header="صفحه دوم" Tag="Page2" />
+                    <TreeViewItem Header="بخش تنظیمات">
+                        <TreeViewItem Header="تنظیمات عمومی" Tag="SettingsPage" />
+                        <TreeViewItem Header="تنظیمات پیشرفته" Tag="AdvancedSettingsPage" />
+                    </TreeViewItem>
+                </TreeView>
+            </Border>
             
-            <ColumnDefinition Width="*"/>
-            
-        </Grid.ColumnDefinitions>
-
-        <StackPanel Grid.Row="1" Grid.Column="1">
-
-            <lvc:CartesianChart Name="MyChart" Height="200"/>
-
-            <TextBox  x:Name="textBoxOutput" Background="LightPink"
-             VerticalScrollBarVisibility="Auto" 
-             AcceptsReturn="True" 
-             TextWrapping="Wrap" 
-             Height="100" />
-        </StackPanel>
-
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" >
-
-            <ComboBox Name="SerialComboBox"
-              Width="100"
-              Height="30"
-                Margin="10"
-            />
-
-           <Button Width="50" Height="30" x:Name="BTNopenSerial" Content="Open" Background="BlueViolet" ></Button>
-        </StackPanel>
-
-
-        <TextBox Grid.Row="0" Grid.Column="0" x:Name="conter" Background="LightBlue"
-         VerticalScrollBarVisibility="Auto" 
-         AcceptsReturn="True" 
-         TextWrapping="Wrap"
-         Text="sss"
-         Height="20" />
-
-        <!--
-        <DataGrid Grid.Row="2" Grid.Column="0" Height="200" Width="300"  x:Name="myDataGrid" AutoGenerateColumns="True" HeadersVisibility="Column" CanUserAddRows="False">
-            <DataGrid.Columns>
-               <DataGridTextColumn Header="نام" Binding="{Binding test}" Width="*" />
-                <DataGridTextColumn Header="سن" Binding="{Binding Age}" Width="Auto" />
-                <DataGridTextColumn Header="شهر" Binding="{Binding City}" Width="*" />*/ 
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-        <StackPanel Grid.Row="1" Grid.Column="0">
-
-            <TextBlock Text="Calls Data" FontWeight="Bold" Margin="5"/>
-            <DataGrid Name="DataGridCalls" Height="150" Margin="5"/>
-
-            <TextBlock Text="Simple Data" FontWeight="Bold" Margin="5"/>
-            <DataGrid Name="DataGridSimpleData" Height="150" Margin="5"/>
-
-        </StackPanel>
-
+        </Popup>
+        
+        <!-- این Frame محتوای صفحه رو نمایش میده -->
+        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" />
     </Grid>
+
 </Window>

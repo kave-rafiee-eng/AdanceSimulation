@@ -13,7 +13,7 @@ namespace ElavatorSimilator
     public class SerialPortManager
     {
         
-        public int ReciveCounter { get; set; }
+        public int ReciveCounter { get; set; } = 0;
 
         private SerialPort serialPort;
         //SerialPort serialPort = new SerialPort();
