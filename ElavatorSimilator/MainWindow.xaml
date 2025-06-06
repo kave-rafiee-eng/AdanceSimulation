@@ -1,0 +1,75 @@
+﻿<Window x:Class="ElavatorSimilator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElavatorSimilator"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+           
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            
+            <ColumnDefinition Width="*"/>
+            
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+
+            <lvc:CartesianChart Name="MyChart" Height="200"/>
+
+            <TextBox  x:Name="textBoxOutput" Background="LightPink"
+             VerticalScrollBarVisibility="Auto" 
+             AcceptsReturn="True" 
+             TextWrapping="Wrap" 
+             Height="100" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" >
+
+            <ComboBox Name="SerialComboBox"
+              Width="100"
+              Height="30"
+                Margin="10"
+            />
+
+           <Button Width="50" Height="30" x:Name="BTNopenSerial" Content="Open" Background="BlueViolet" ></Button>
+        </StackPanel>
+
+
+        <TextBox Grid.Row="0" Grid.Column="0" x:Name="conter" Background="LightBlue"
+         VerticalScrollBarVisibility="Auto" 
+         AcceptsReturn="True" 
+         TextWrapping="Wrap"
+         Text="sss"
+         Height="20" />
+
+        <!--
+        <DataGrid Grid.Row="2" Grid.Column="0" Height="200" Width="300"  x:Name="myDataGrid" AutoGenerateColumns="True" HeadersVisibility="Column" CanUserAddRows="False">
+            <DataGrid.Columns>
+               <DataGridTextColumn Header="نام" Binding="{Binding test}" Width="*" />
+                <DataGridTextColumn Header="سن" Binding="{Binding Age}" Width="Auto" />
+                <DataGridTextColumn Header="شهر" Binding="{Binding City}" Width="*" />*/ 
+            </DataGrid.Columns>
+        </DataGrid>-->
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+
+            <TextBlock Text="Calls Data" FontWeight="Bold" Margin="5"/>
+            <DataGrid Name="DataGridCalls" Height="150" Margin="5"/>
+
+            <TextBlock Text="Simple Data" FontWeight="Bold" Margin="5"/>
+            <DataGrid Name="DataGridSimpleData" Height="150" Margin="5"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
