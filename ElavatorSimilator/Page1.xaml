@@ -35,21 +35,6 @@
              Height="100" />
         </StackPanel>
 
-        
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" >
-
-            <!-- <ComboBox Name="SerialComboBox"
-              Width="100"
-              Height="30"
-                Margin="10"
-            />
-
-            <Button Width="50" Height="30" x:Name="BTNopenSerial" Content="Open" Background="BlueViolet" ></Button>
-               -->
-            <local:SerialSelectorControl x:Name="serialControl" HorizontalAlignment="Left" VerticalAlignment="Top" />
-
-        </StackPanel>
-
 
         <TextBox Grid.Row="0" Grid.Column="0" x:Name="conter" Background="LightBlue"
          VerticalScrollBarVisibility="Auto" 
@@ -57,15 +42,6 @@
          TextWrapping="Wrap"
          Text="sss"
          Height="20" />
-
-        <!--
-        <DataGrid Grid.Row="2" Grid.Column="0" Height="200" Width="300"  x:Name="myDataGrid" AutoGenerateColumns="True" HeadersVisibility="Column" CanUserAddRows="False">
-            <DataGrid.Columns>
-               <DataGridTextColumn Header="نام" Binding="{Binding test}" Width="*" />
-                <DataGridTextColumn Header="سن" Binding="{Binding Age}" Width="Auto" />
-                <DataGridTextColumn Header="شهر" Binding="{Binding City}" Width="*" />*/ 
-            </DataGrid.Columns>
-        </DataGrid>-->
 
         <StackPanel Grid.Row="1" Grid.Column="0">
 

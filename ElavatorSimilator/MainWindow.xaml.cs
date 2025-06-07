@@ -2,7 +2,10 @@
 using LiveCharts.Wpf;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.ComponentModel;
 using System.Configuration;
+using System.Drawing;
 using System.Dynamic;
 using System.IO.Ports;
 using System.Text;
@@ -17,20 +20,41 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using static ElavatorSimilator.MainWindow;
+using static ElavatorSimilator.Page1;
 
 namespace ElavatorSimilator
 {
-
     public partial class MainWindow : Window
     {
+
+        private readonly Person person;
+
+        private DispatcherTimer updatefloor;
+
         public MainWindow()
         {
 
             InitializeComponent();
 
-            MainFrame.Navigate(new Page1());
+            person = new Person();
+
+            person.PersonName = "aaaa";
+
+            updatefloor = new DispatcherTimer();
+            updatefloor.Interval = TimeSpan.FromMilliseconds(500); // هر نیم ثانیه
+            updatefloor.Tick += updatefloorUI;
+            updatefloor.Start();
+
+           // MainFrame.Navigate(new PageElevator());
         }
 
+        private void updatefloorUI(object sender, EventArgs e)
+        {
+
+        }
+
+
+        
         private void MenuTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var selectedItem = MenuTreeView.SelectedItem as TreeViewItem;
@@ -43,26 +67,23 @@ namespace ElavatorSimilator
 
             switch (pageName)
             {
-                /*case "Page1":
+                case "Calls":
                     MainFrame.Navigate(new Page1());
                     break;
-                case "Page2":
-                    MainFrame.Navigate(new Page2());
+                case "Location":
+                    MainFrame.Navigate(new PageLocation());
                     break;
-                case "SettingsPage":
-                    MainFrame.Navigate(new SettingsPage());
+                case "BTn":
+                    MainFrame.Navigate(new PageElevator());
                     break;
-                case "AdvancedSettingsPage":
-                    MainFrame.Navigate(new AdvancedSettingsPage());
-                    break;*/
             }
 
             // بعد از انتخاب، منو بسته شود
             MenuToggleButton.IsChecked = false;
         }
 
+
+
     }
-
-
-
 }
+

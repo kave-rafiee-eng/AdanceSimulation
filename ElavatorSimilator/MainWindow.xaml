@@ -1,36 +1,47 @@
 ﻿<Window x:Class="ElavatorSimilator.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElavatorSimilator"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-      
+
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
 
+        Title="MainWindow" Height="600" Width="800"
+        >
 
-    
-    <Grid>
-
+    <Grid >
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-
+            <RowDefinition Height="20*"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
 
-        <!-- دکمه باز و بسته کردن منو -->
-        <ToggleButton x:Name="MenuToggleButton" Content="☰ Menu" Width="80" Height="auto" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" />
 
-        <!-- منوی درختی داخل Popup -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal"  Margin="10" >
+            <ToggleButton x:Name="MenuToggleButton" Content="☰ Menu" Width="80" Height="auto" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" />
+            <TextBox  Text="{Binding PersonName, Mode=TwoWay}" FontSize="10" Margin="2"/>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" >
+                <local:SerialSelectorControl x:Name="serialControl" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            </StackPanel>
+
+        </StackPanel>
+        <!-- دکمه باز و بسته کردن منو -->
+
+
         <Popup Grid.Row="0" PlacementTarget="{Binding ElementName=MenuToggleButton}" 
                Placement="Bottom"
                StaysOpen="False"
                IsOpen="{Binding IsChecked, ElementName=MenuToggleButton, Mode=TwoWay}">
             <Border Background="White" BorderBrush="Gray" BorderThickness="1" Width="200" Height="300" >
                 <TreeView Name="MenuTreeView" SelectedItemChanged="MenuTreeView_SelectedItemChanged">
-                    <TreeViewItem Header="صفحه اول" Tag="Page1" />
-                    <TreeViewItem Header="صفحه دوم" Tag="Page2" />
+                    <TreeViewItem Header="Calls" Tag="Calls" />
+                    <TreeViewItem Header="Location" Tag="Location" />
+                    <TreeViewItem Header="BTn" Tag="BTn" />
                     <TreeViewItem Header="بخش تنظیمات">
                         <TreeViewItem Header="تنظیمات عمومی" Tag="SettingsPage" />
                         <TreeViewItem Header="تنظیمات پیشرفته" Tag="AdvancedSettingsPage" />
@@ -38,10 +49,11 @@
                 </TreeView>
             </Border>
             
-        </Popup>
+        </Popup> 
         
         <!-- این Frame محتوای صفحه رو نمایش میده -->
         <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" />
+        
     </Grid>
 
 </Window>

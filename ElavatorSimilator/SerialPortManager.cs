@@ -19,7 +19,8 @@ namespace ElavatorSimilator
         //SerialPort serialPort = new SerialPort();
 
         public event Action<string> DataReceived;  // رویداد برای انتقال داده به UI
-
+        private string portName;
+        private int baudRate;
 
         public bool IsPortAvailable(string portName)
         {
@@ -28,14 +29,25 @@ namespace ElavatorSimilator
 
         public SerialPortManager(string portName, int baudRate = 115200)
         {
-            serialPort = new SerialPort(portName, baudRate);
-            serialPort.DataReceived += SerialPort_DataReceived;
+
+            this.portName = portName;
+            this.baudRate = baudRate;
+
+
         }
 
         public void Open()
         {
+            if (serialPort == null)
+            {
+                serialPort = new SerialPort(portName, baudRate);
+                serialPort.DataReceived += SerialPort_DataReceived;
+            }
+
             if (!serialPort.IsOpen)
+            {
                 serialPort.Open();
+            }
         }
 
         public void Close()

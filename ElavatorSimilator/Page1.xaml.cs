@@ -39,10 +39,14 @@ namespace ElavatorSimilator
         {
             InitializeComponent();
 
-            serialControl.DataReceived += OnDataReceived;
-
-            string[] ports = SerialPort.GetPortNames();
-
+            var serialControl = SerialSelectorControl.Instance;
+            if (serialControl != null)
+            {
+                // مثلا استفاده از portManager
+                var manager = serialControl.portManager;
+                // یا subscribe به DataReceived
+                serialControl.DataReceived += OnDataReceived;
+            }
 
             updateTimer = new DispatcherTimer();
             updateTimer.Interval = TimeSpan.FromMilliseconds(500); // هر نیم ثانیه
@@ -82,6 +86,8 @@ namespace ElavatorSimilator
                     simpleData = token.ToObject<SimpleData>();
 
                     AddValueToBuffer(simpleData.data1);
+
+                    var serialControl = SerialSelectorControl.Instance;
                     serialControl.portManager.ReciveCounter++;
                 }
 
@@ -91,7 +97,7 @@ namespace ElavatorSimilator
         }
 
 
-        public bool TryParseJson(string data, out JToken token)
+        private bool TryParseJson(string data, out JToken token)
         {
             try
             {
@@ -144,12 +150,12 @@ namespace ElavatorSimilator
                 if (simpleData != null)
                     DataGridSimpleData.ItemsSource = new List<SimpleData> { simpleData };
 
+                var serialControl = SerialSelectorControl.Instance;
                 if (serialControl.portManager != null)
                 {
                     conter.Text = serialControl.portManager.ReciveCounter.ToString();
                 }
 
-                
 
                 textBoxOutput.AppendText(latestData + "\n");
 
@@ -166,7 +172,7 @@ namespace ElavatorSimilator
             
         }
 
-        public class Call
+        private class Call
         {
             public int advance { get; set; }
             public string From { get; set; }
@@ -178,13 +184,13 @@ namespace ElavatorSimilator
             public int Timer { get; set; }
         }
 
-        public class RootWithCalls
+        private class RootWithCalls
         {
             public int test { get; set; }
             public List<Call> calls { get; set; }
         }
 
-            public class SimpleData
+               private class SimpleData
             {
                 public int data1 { get; set; }
                 public int data2 { get; set; }

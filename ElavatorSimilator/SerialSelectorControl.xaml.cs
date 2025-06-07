@@ -22,6 +22,7 @@ namespace ElavatorSimilator
     public partial class SerialSelectorControl : UserControl
     {
 
+        public static SerialSelectorControl Instance { get; private set; }
         public SerialPortManager portManager { get; private set; }
         public event Action<string> DataReceived;
 
@@ -29,7 +30,8 @@ namespace ElavatorSimilator
         {
             InitializeComponent();
 
-            
+            Instance = this;
+
             SerialComboBox.ItemsSource = SerialPort.GetPortNames();
             if (SerialComboBox.Items.Count > 0)
                 SerialComboBox.SelectedIndex = 0;
@@ -41,6 +43,12 @@ namespace ElavatorSimilator
                 {
                     TryOpenPort(selectedPort);
                 }
+            };
+
+            colseButton.Click += (s, e) =>
+            {
+                portManager.Close();
+                MessageBox.Show("Port Close");
             };
         }
 
