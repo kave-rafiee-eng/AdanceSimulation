@@ -89,6 +89,27 @@ namespace ElavatorSimilator
                 System.Diagnostics.Debug.WriteLine("SerialPort IOException: " + ex.Message);
             }
         }
+
+
+        public void Send(string data)
+        {
+            try
+            {
+                if (serialPort != null && serialPort.IsOpen)
+                {
+                    serialPort.Write(data);
+                    System.Diagnostics.Debug.WriteLine("Sent: " + data);
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("Serial port not open. Cannot send data.");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Send failed: " + ex.Message);
+            }
+        }
     }
 
 }

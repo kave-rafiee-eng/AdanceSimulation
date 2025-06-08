@@ -18,20 +18,34 @@
         </Grid.ColumnDefinitions>
 
         <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <StackPanel Orientation="Horizontal">
-                <Views:LocationView x:Name="LocationViewInstance" Width="250"/>
-                <Views:CallsDataGrid x:Name="CallsDataGridInstance" Width="250"/>
-                <Views:SystemPanelView x:Name="SystemPanelViewInstance" Width="250"/>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" Orientation="Horizontal">
+
+                <GroupBox Header="Location" Margin="5">
+                    <Views:LocationView x:Name="LocationViewInstance" Width="200"/>
+                </GroupBox>
+
+                <GroupBox Header="Calls" Margin="5">
+                    <Views:CallsDataGrid x:Name="CallsDataGridInstance" Width="350"/>
+                </GroupBox>
+
+
+                <GroupBox Header="Butons" Margin="5">
+                    <Views:ButtonsView x:Name="ButtonsViewInstance" Width="280" />
+                </GroupBox>
+
             </StackPanel>
+            
         </ScrollViewer>
 
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
-            <Views:ButtonsView x:Name="ButtonsViewInstance" />
+
+            <GroupBox Header="System" Margin="5">
+                <Views:SystemPanelView x:Name="SystemPanelViewInstance" Width="200"/>
+            </GroupBox>
+            
         </ScrollViewer>
         
-
-
-
 
     </Grid>
 </Page>

@@ -9,18 +9,52 @@
     
     <Grid>
         <DataGrid ItemsSource="{Binding Calls}"
-                  AutoGenerateColumns="False"
-                  HeadersVisibility="Column"
-                  IsReadOnly="True"
-                  Margin="10">
+          AutoGenerateColumns="False"
+          HeadersVisibility="Column"
+          IsReadOnly="True"
+          Margin="10"
+          RowBackground="White"
+          AlternatingRowBackground="#F9F9F9"
+          GridLinesVisibility="Horizontal"
+          HorizontalGridLinesBrush="#DDDDDD"
+          ColumnHeaderHeight="30"
+          RowHeight="28"
+          FontSize="14"
+          FontFamily="Segoe UI"
+          BorderBrush="#CCCCCC"
+          BorderThickness="1"
+          SelectionMode="Single"
+          SelectionUnit="FullRow">
+
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Advance" Binding="{Binding advance}" />
+                <DataGridTextColumn Header="AD" Binding="{Binding advance}" />
                 <DataGridTextColumn Header="From" Binding="{Binding From}" />
-                <DataGridTextColumn Header="Floor" Binding="{Binding Floor}" />
-                <DataGridTextColumn Header="Door1" Binding="{Binding door1}" />
-                <DataGridTextColumn Header="Door2" Binding="{Binding door2}" />
-                <DataGridTextColumn Header="Door3" Binding="{Binding door3}" />
-                <DataGridTextColumn Header="Direction" Binding="{Binding dir}" />
+                <DataGridTemplateColumn Header="Floor">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Floor}" 
+                       Background="LightBlue" 
+                       Foreground="DarkBlue" 
+                       Padding="4,0"
+                       FontWeight="Bold"
+                       TextAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="D1" Binding="{Binding door1}" />
+                <DataGridTextColumn Header="D2" Binding="{Binding door2}" />
+                <DataGridTextColumn Header="D3" Binding="{Binding door3}" />
+                <DataGridTemplateColumn Header="Dir">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding dir}" 
+                       Background="Pink" 
+                       Foreground="Black" 
+                       Padding="4,0"
+                       TextAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Timer" Binding="{Binding Timer}" />
             </DataGrid.Columns>
         </DataGrid>

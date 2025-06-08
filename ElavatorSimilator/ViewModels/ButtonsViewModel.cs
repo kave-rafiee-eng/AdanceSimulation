@@ -1,4 +1,5 @@
 ﻿using ElavatorSimilator.Models;
+using ElavatorSimilator.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -22,7 +24,7 @@ namespace ElavatorSimilator.ViewModels
 
         public ButtonsMainViewModel()
         {
-            for (int floor = 0; floor < 10; floor++)
+            for (int floor = 8; floor >0; floor--)
             {
                 var floorVm = new FloorViewModel();
                 for (int door = 0; door < 3; door++)
@@ -32,6 +34,7 @@ namespace ElavatorSimilator.ViewModels
                     {
                         var info = new ButtonInfo
                         {
+                            From = 0,
                             Floor = floor,
                             Direction = dir,
                             Door = door
@@ -41,7 +44,26 @@ namespace ElavatorSimilator.ViewModels
                     }
                     floorVm.Groups.Add(groupVm);
                 }
+
+                for (int door = 0; door < 3; door++)
+                {
+                    var groupVm = new GroupViewModel();
+
+                        var info = new ButtonInfo
+                        {
+                            From = 1,
+                            Floor = floor,
+                            Direction = 4,
+                            Door = door
+
+                        };
+                        groupVm.Buttons.Add(new ButtonViewModel(info));
+                    
+                    floorVm.Groups.Add(groupVm);
+                }
+
                 Floors.Add(floorVm);
+
             }
 
             ButtonViewModel.ButtonClicked += OnButtonClicked;
@@ -50,10 +72,60 @@ namespace ElavatorSimilator.ViewModels
 
         private void OnButtonClicked(ButtonInfo info)
         {
-            string address = $"F:{info.Floor} D:{info.Direction} " +
-                             $"F:{info.Door} ";
+            string address = $"From:{info.From} Floor:{info.Floor} Dir:{info.Direction} " +
+                             $"Door:{info.Door} ";
 
             Debug.WriteLine($"Send to serial: {address}");
+
+            var jsonObject = new JsonObject
+            {
+                ["from"] = info.From,
+                ["floor"] = info.Floor,
+            };
+
+            switch (info.Door)
+            {
+                case 0:
+                    jsonObject["door1"] = 1;
+                    jsonObject["door2"] = 0;
+                    jsonObject["door3"] = 0;
+                break;
+                case 1:
+                    jsonObject["door1"] = 0;
+                    jsonObject["door2"] = 1;
+                    jsonObject["door3"] = 0;
+                    break;
+                case 2:
+                    jsonObject["door1"] = 0;
+                    jsonObject["door2"] = 0;
+                    jsonObject["door3"] = 1;
+                    break;
+            }
+
+            switch (info.Direction)
+            {
+                case 0:
+                    jsonObject["dir"] = 2;
+                    break;
+                case 1:
+                    jsonObject["dir"] = 0;
+                break;
+                case 2:
+                    jsonObject["dir"] = 3;
+                    break;
+                case 3:
+                    jsonObject["dir"] = 0;
+                    break;
+            }
+
+            // تبدیل به رشته JSON
+            string json = jsonObject.ToJsonString();
+
+            var serialControl = SerialSelector.Instance;
+            if (serialControl != null)
+            {
+                serialControl.Send(json);
+            }
         }
 
         public void UpdateButtonColor(int floor, int door, int direction, Brush newColor)

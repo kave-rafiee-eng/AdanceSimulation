@@ -9,7 +9,7 @@
     <Grid>
 
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="10" Background="Beige">
+            <StackPanel Margin="10" Background="LightSteelBlue">
                 <!-- Floors Loop -->
                 <ItemsControl ItemsSource="{Binding Floors}">
                     <ItemsControl.ItemTemplate>

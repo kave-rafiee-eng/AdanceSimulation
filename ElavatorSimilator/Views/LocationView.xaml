@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     
     <Grid>
-        <Canvas x:Name="Elevator" Grid.Row="1" Height="400" Width="500"  Background="LightGray" HorizontalAlignment="Left">
+        <Canvas x:Name="Elevator" Grid.Row="1" Height="400" Width="200"  Background="LightGray" HorizontalAlignment="Left">
 
             <Rectangle Width="90" Height="12.5" Fill="Red"
                Stroke="Black" StrokeThickness="1"

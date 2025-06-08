@@ -69,5 +69,25 @@ namespace ElavatorSimilator.Views
             else
                 MessageBox.Show($"پورت {portName} با موفقیت باز شد.");
         }
+
+
+        public void Send(string message)
+        {
+            if (portManager != null )
+            {
+                try
+                {
+                    portManager.Send(message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"خطا در ارسال داده: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("پورت باز نیست یا تنظیم نشده است.");
+            }
+        }
     }
 }

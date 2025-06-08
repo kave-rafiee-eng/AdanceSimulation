@@ -8,18 +8,53 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
 
-        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Padding="8" Background="#F0F2F5">
             <ItemsControl ItemsSource="{Binding Panels}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="8" Margin="10" Padding="10" Background="White">
+                        <Border BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="10" 
+                        Margin="6" Padding="10" Background="White">
+
                             <StackPanel>
-                                <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="16" Foreground="DarkSlateBlue" Margin="0,0,0,5"/>
+                                <TextBlock Text="{Binding Title}" FontWeight="SemiBold" FontSize="16" 
+                                   Foreground="#2C3E50" Margin="0,0,0,6"/>
 
                                 <ItemsControl ItemsSource="{Binding Items}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
-                                            <Border Background="LightYellow" BorderBrush="Gray" BorderThickness="1" CornerRadius="5" Margin="5" Padding="5">
+                                            <Border Background="#FAFAFA" BorderBrush="#CCCCCC" BorderThickness="1" 
+                                            CornerRadius="6" Margin="4" Padding="6">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                    <TextBlock Text="{Binding Label}" Width="100" 
+                                                       FontWeight="Bold" Foreground="#34495E"/>
+                                                    <TextBlock Text="{Binding Value}" Foreground="#27AE60" 
+                                                       VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <!--
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Panels}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="8" Margin="2" Padding="2" Background="White">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="14" Foreground="DarkSlateBlue" Margin="0,0,0,2"/>
+
+                                <ItemsControl ItemsSource="{Binding Items}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Background="LightYellow" BorderBrush="Gray" BorderThickness="1" CornerRadius="5" Margin="2" Padding="2">
                                                 <StackPanel Orientation="Horizontal" Background="AliceBlue">
                                                     <Label Content="{Binding Label}" Width="80" FontWeight="Bold" Foreground="DarkBlue"/>
                                                     <TextBlock Text="{Binding Value}" Foreground="DarkGreen" VerticalAlignment="Center"/>
@@ -34,6 +69,6 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        
+        -->
     </Grid>
 </UserControl>

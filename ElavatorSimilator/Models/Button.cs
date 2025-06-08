@@ -9,6 +9,7 @@ namespace ElavatorSimilator.Models
     // 📁 ButtonInfo.cs
     public class ButtonInfo
     {
+        public int From { get; set; }
         public int Floor { get; set; }
         public int Direction { get; set; } // 0=UP, 1=UP-DOWN, 2=DOWN
         public int Door { get; set; }
@@ -18,7 +19,7 @@ namespace ElavatorSimilator.Models
             0 => "\u2191", // ↑
             1 => "\u21C5", // ⇅
             2 => "\u2193", // ↓
-            _ => "?"
+            _ => "-"
         };
     }
 }
