@@ -7,15 +7,12 @@
       "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\pageelevator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\viewmodels\\systempanelviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\viewmodels\\systempanelviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\pageelevator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\pageelevator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kave\\AppData\\Local\\Temp\\.vsdbgsrc\\8d1f017b542dccf329bbe457494af46fc4e3be11d696a3fa0736f0a284a1f5d3\\FrameworkElement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,14 +26,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "ElavatorSimilator\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\MainWindow.xaml",
-              "RelativeToolTip": "ElavatorSimilator\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-07T12:50:17.107Z",
+              "DocumentIndex": 1,
+              "Title": "SystemPanelViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\ViewModels\\SystemPanelViewModel.cs",
+              "RelativeDocumentMoniker": "ElavatorSimilator\\ViewModels\\SystemPanelViewModel.cs",
+              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\ViewModels\\SystemPanelViewModel.cs",
+              "RelativeToolTip": "ElavatorSimilator\\ViewModels\\SystemPanelViewModel.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T09:23:02.015Z",
               "EditorCaption": ""
             },
             {
@@ -47,35 +45,22 @@
               "RelativeDocumentMoniker": "ElavatorSimilator\\PageElevator.xaml.cs",
               "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml.cs",
               "RelativeToolTip": "ElavatorSimilator\\PageElevator.xaml.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADMAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAmwEwAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T12:48:47.748Z",
+              "WhenOpened": "2025-06-08T09:19:49.332Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PageElevator.xaml",
               "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml",
               "RelativeDocumentMoniker": "ElavatorSimilator\\PageElevator.xaml",
               "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml",
               "RelativeToolTip": "ElavatorSimilator\\PageElevator.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-07T12:48:42.84Z",
+              "WhenOpened": "2025-06-08T09:19:20.861Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrameworkElement.cs",
-              "DocumentMoniker": "C:\\Users\\kave\\AppData\\Local\\Temp\\.vsdbgsrc\\8d1f017b542dccf329bbe457494af46fc4e3be11d696a3fa0736f0a284a1f5d3\\FrameworkElement.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\8d1f017b542dccf329bbe457494af46fc4e3be11d696a3fa0736f0a284a1f5d3\\FrameworkElement.cs",
-              "ToolTip": "C:\\Users\\kave\\AppData\\Local\\Temp\\.vsdbgsrc\\8d1f017b542dccf329bbe457494af46fc4e3be11d696a3fa0736f0a284a1f5d3\\FrameworkElement.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\8d1f017b542dccf329bbe457494af46fc4e3be11d696a3fa0736f0a284a1f5d3\\FrameworkElement.cs [Read Only]",
-              "ViewState": "AgIAAPoRAAAAAAAAAAAYwAUSAAADAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T12:55:46.643Z",
-              "EditorCaption": " [Read Only]"
             }
           ]
         }

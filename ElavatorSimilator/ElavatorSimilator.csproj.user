@@ -2,6 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="PageBTN.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PageElevator.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -12,6 +15,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SerialSelectorControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CallsDataGrid.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SystemPanelView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

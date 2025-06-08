@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.ComponentModel;
 using System.Configuration;
+using System.Diagnostics;
 using System.Drawing;
 using System.Dynamic;
 using System.IO.Ports;
@@ -40,17 +41,19 @@ namespace ElavatorSimilator
 
             person.PersonName = "aaaa";
 
+
+
             updatefloor = new DispatcherTimer();
             updatefloor.Interval = TimeSpan.FromMilliseconds(500); // هر نیم ثانیه
             updatefloor.Tick += updatefloorUI;
             updatefloor.Start();
 
-           // MainFrame.Navigate(new PageElevator());
+            MainFrame.Navigate(new PageBTN());
         }
 
         private void updatefloorUI(object sender, EventArgs e)
         {
-
+           // Debug.WriteLine("Page Elevator");
         }
 
 
