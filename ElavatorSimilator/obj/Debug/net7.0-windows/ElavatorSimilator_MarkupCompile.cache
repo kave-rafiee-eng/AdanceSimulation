@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\App.xaml
-8-260650071
+101269886645
 
-17456159039
+24446814687
 202-1101197411
-MainWindow.xaml;Page1.xaml;PageBTN.xaml;PageElevator.xaml;PageLocation.xaml;SerialSelectorControl.xaml;Views\CallsDataGrid.xaml;Views\SystemPanelView.xaml;
+MainWindow.xaml;Page1.xaml;PageBTN.xaml;PageElevator.xaml;PageLocation.xaml;Views\ButtonsView.xaml;Views\CallsDataGrid.xaml;Views\LocationView.xaml;Views\SerialSelector.xaml;Views\SystemPanelView.xaml;
 
 False
 

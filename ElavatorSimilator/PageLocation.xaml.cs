@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using ElavatorSimilator.Views;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -22,7 +23,7 @@ namespace ElavatorSimilator
     /// </summary>
     public partial class PageLocation : Page
     {
-        private Location location;
+        //private Location location;
 
         private double floor = 2;
         private double Infloor = 1;
@@ -33,7 +34,7 @@ namespace ElavatorSimilator
         {
             InitializeComponent();
 
-            var serialControl = SerialSelectorControl.Instance;
+            var serialControl = SerialSelector.Instance;
             if (serialControl != null)
             {
                 // مثلا استفاده از portManager
@@ -43,7 +44,7 @@ namespace ElavatorSimilator
             }
 
 
-            location = new Location();
+            /**location = new Location();
 
             for (int i = 0; i < 8; i++)
             {
@@ -77,7 +78,7 @@ namespace ElavatorSimilator
 
             }
 
-            DataContext = location;
+            DataContext = location;*/
 
         }
 
@@ -96,12 +97,12 @@ namespace ElavatorSimilator
                 {
                     simpleData = token.ToObject<SimpleData>();
 
-                    var serialControl = SerialSelectorControl.Instance;
+                    var serialControl = SerialSelector.Instance;
                     serialControl.portManager.ReciveCounter++;
 
                     floor = simpleData.data1;
                     Infloor = simpleData.data2;
-                    location.Y = (floor * 50 + (Infloor - 1) * 12.5);
+                    //location.Y = (floor * 50 + (Infloor - 1) * 12.5);
 
 
                 }
@@ -140,5 +141,6 @@ namespace ElavatorSimilator
             public string name3 { get; set; }
             public int value3 { get; set; }
         }
+
     }
 }

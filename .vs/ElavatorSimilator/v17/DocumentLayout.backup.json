@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\pageelevator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\pageelevator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\process\\jsonprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\process\\jsonprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\viewmodels\\systempanelviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\viewmodels\\systempanelviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\viewmodels\\locationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\viewmodels\\locationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\pageelevator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\pageelevator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\views\\locationview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\views\\locationview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\views\\locationview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\views\\locationview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +26,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 303,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SystemPanelViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\ViewModels\\SystemPanelViewModel.cs",
-              "RelativeDocumentMoniker": "ElavatorSimilator\\ViewModels\\SystemPanelViewModel.cs",
-              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\ViewModels\\SystemPanelViewModel.cs",
-              "RelativeToolTip": "ElavatorSimilator\\ViewModels\\SystemPanelViewModel.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCsAAAABAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "LocationView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\Views\\LocationView.xaml.cs",
+              "RelativeDocumentMoniker": "ElavatorSimilator\\Views\\LocationView.xaml.cs",
+              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\Views\\LocationView.xaml.cs",
+              "RelativeToolTip": "ElavatorSimilator\\Views\\LocationView.xaml.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowCcAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T09:23:02.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PageElevator.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml.cs",
-              "RelativeDocumentMoniker": "ElavatorSimilator\\PageElevator.xaml.cs",
-              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml.cs*",
-              "RelativeToolTip": "ElavatorSimilator\\PageElevator.xaml.cs*",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAmwJUAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T09:19:49.332Z",
+              "WhenOpened": "2025-06-08T11:48:44.685Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PageElevator.xaml",
-              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml",
-              "RelativeDocumentMoniker": "ElavatorSimilator\\PageElevator.xaml",
-              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml",
-              "RelativeToolTip": "ElavatorSimilator\\PageElevator.xaml",
+              "Title": "LocationView.xaml",
+              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\Views\\LocationView.xaml",
+              "RelativeDocumentMoniker": "ElavatorSimilator\\Views\\LocationView.xaml",
+              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\Views\\LocationView.xaml",
+              "RelativeToolTip": "ElavatorSimilator\\Views\\LocationView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-08T09:19:20.861Z",
+              "WhenOpened": "2025-06-08T11:37:52.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LocationViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\ViewModels\\LocationViewModel.cs",
+              "RelativeDocumentMoniker": "ElavatorSimilator\\ViewModels\\LocationViewModel.cs",
+              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\ViewModels\\LocationViewModel.cs",
+              "RelativeToolTip": "ElavatorSimilator\\ViewModels\\LocationViewModel.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwC0AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T11:20:22.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JsonProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\process\\JsonProcessor.cs",
+              "RelativeDocumentMoniker": "ElavatorSimilator\\process\\JsonProcessor.cs",
+              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\process\\JsonProcessor.cs*",
+              "RelativeToolTip": "ElavatorSimilator\\process\\JsonProcessor.cs*",
+              "ViewState": "AgIAACAAAAAAAAAAAAAmwDAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T10:45:34.826Z",
               "EditorCaption": ""
             }
           ]

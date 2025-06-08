@@ -20,7 +20,6 @@ C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\PageBTN.g.cs
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\PageElevator.g.cs
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\PageLocation.g.cs
-C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\SerialSelectorControl.g.cs
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\CallsDataGrid.g.cs
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\App.g.cs
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -31,7 +30,6 @@ C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\PageBTN.baml
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\PageElevator.baml
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\PageLocation.baml
-C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\SerialSelectorControl.baml
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\CallsDataGrid.baml
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\ElavatorSimilator.g.resources
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\ElavatorSimilator.GeneratedMSBuildEditorConfig.editorconfig
@@ -47,3 +45,9 @@ C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\ref\ElavatorSimilator.dll
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\SystemPanelView.g.cs
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\SystemPanelView.baml
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\ButtonsView.g.cs
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\ButtonsView.baml
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\SerialSelector.g.cs
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\SerialSelector.baml
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\LocationView.g.cs
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\Views\LocationView.baml

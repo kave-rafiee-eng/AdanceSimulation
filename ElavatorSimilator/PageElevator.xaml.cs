@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using ElavatorSimilator.Models;
+using ElavatorSimilator.process;
+using ElavatorSimilator.Views;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -19,8 +22,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using ElavatorSimilator.Models;
-
 namespace ElavatorSimilator
 {
 
@@ -35,7 +36,7 @@ namespace ElavatorSimilator
 
             InitializeComponent();
             
-            var serialControl = SerialSelectorControl.Instance;
+            var serialControl = SerialSelector.Instance;
             if (serialControl != null)
             {
                 serialControl.DataReceived += OnDataReceived;
@@ -58,15 +59,13 @@ namespace ElavatorSimilator
         }
 
 
-
-
-
-
-
         private void OnDataReceived(string data)
         {
 
-            if (TryParseJson(data, out JToken token))
+            var processor = new JsonProcessor(SystemPanelViewInstance.ViewModel, CallsDataGridInstance.ViewModel , LocationViewInstance.ViewModel );
+            processor.Process(data);
+
+            /*if (TryParseJson(data, out JToken token))
             {
 
                 if (token.Type == JTokenType.Object)
@@ -85,10 +84,14 @@ namespace ElavatorSimilator
 
                             Debug.WriteLine($"  → This is an array under key '{property.Name}'");
 
+                            var Calls = new List<Call>();
+                            Calls = property.Value.ToObject<List<Call>>();
+
                             foreach (var item in property.Value)
                             {
                                 if (item.Type == JTokenType.Object)
                                 {
+
                                     Debug.WriteLine("    → Item is an object with properties:");
                                     foreach (var field in ((JObject)item).Properties())
                                     {
@@ -113,6 +116,19 @@ namespace ElavatorSimilator
                                     Debug.WriteLine($"    → Item is not an object: {item}");
                                 }
                             }
+
+                            Application.Current.Dispatcher.BeginInvoke(() =>
+                            {
+
+                                SystemPanelViewInstance.ViewModel.ClearPanels();
+
+                                CallsDataGridInstance.ViewModel.Calls.Clear();
+                                foreach (var call in Calls)
+                                {
+                                    CallsDataGridInstance.ViewModel.AddCall(call);
+                                }
+
+                            });
 
                             
                         }
@@ -155,10 +171,10 @@ namespace ElavatorSimilator
 
                 }
 
-            }
+            }*/
 
         }
-
+/*
         private bool TryParseJson(string data, out JToken token)
         {
             try
@@ -173,7 +189,7 @@ namespace ElavatorSimilator
 
             }
         }
-
+*/
 
     }
 

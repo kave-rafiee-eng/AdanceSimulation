@@ -37,6 +37,11 @@ namespace ElavatorSimulator.ViewModels
             Calls.Remove(call);
         }
 
+        public void ClearCalls()
+        {
+            Calls.Clear();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propName)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));

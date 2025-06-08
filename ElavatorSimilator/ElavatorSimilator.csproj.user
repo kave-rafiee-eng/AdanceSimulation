@@ -14,10 +14,16 @@
     <Compile Update="Page1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SerialSelectorControl.xaml.cs">
+    <Compile Update="Views\ButtonsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\CallsDataGrid.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LocationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SerialSelector.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SystemPanelView.xaml.cs">

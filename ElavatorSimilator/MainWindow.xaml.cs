@@ -39,24 +39,18 @@ namespace ElavatorSimilator
 
             person = new Person();
 
-            person.PersonName = "aaaa";
-
-
-
             updatefloor = new DispatcherTimer();
             updatefloor.Interval = TimeSpan.FromMilliseconds(500); // هر نیم ثانیه
             updatefloor.Tick += updatefloorUI;
             updatefloor.Start();
 
-            MainFrame.Navigate(new PageBTN());
+            MainFrame.Navigate(new PageElevator());
         }
 
         private void updatefloorUI(object sender, EventArgs e)
         {
            // Debug.WriteLine("Page Elevator");
         }
-
-
         
         private void MenuTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {

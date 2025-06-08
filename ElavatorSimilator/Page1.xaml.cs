@@ -1,4 +1,7 @@
-﻿using LiveCharts;
+﻿using ElavatorSimilator.Views;
+using LiveCharts;
+using LiveCharts;
+using LiveCharts.Wpf;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -15,8 +18,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LiveCharts;
-using LiveCharts.Wpf;
 using System.Windows.Threading;
 
 namespace ElavatorSimilator
@@ -39,7 +40,7 @@ namespace ElavatorSimilator
         {
             InitializeComponent();
 
-            var serialControl = SerialSelectorControl.Instance;
+            var serialControl = SerialSelector.Instance;
             if (serialControl != null)
             {
                 // مثلا استفاده از portManager
@@ -87,7 +88,7 @@ namespace ElavatorSimilator
 
                     AddValueToBuffer(simpleData.data1);
 
-                    var serialControl = SerialSelectorControl.Instance;
+                    var serialControl = SerialSelector.Instance;
                     serialControl.portManager.ReciveCounter++;
                 }
 
@@ -150,7 +151,7 @@ namespace ElavatorSimilator
                 if (simpleData != null)
                     DataGridSimpleData.ItemsSource = new List<SimpleData> { simpleData };
 
-                var serialControl = SerialSelectorControl.Instance;
+                var serialControl = SerialSelector.Instance;
                 if (serialControl.portManager != null)
                 {
                     conter.Text = serialControl.portManager.ReciveCounter.ToString();

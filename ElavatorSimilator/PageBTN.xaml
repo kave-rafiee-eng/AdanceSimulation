@@ -17,57 +17,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="10" Background="Beige">
-                <!-- Floors Loop -->
-                <ItemsControl ItemsSource="{Binding Floors}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="5">
-                                <!-- Groups Loop -->
-                                <ItemsControl ItemsSource="{Binding Groups}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border BorderBrush="Black" BorderThickness="1" 
-                                                CornerRadius="5" Padding="5" Margin="5" Background="LightGray">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <!-- Buttons Loop -->
-                                                    <ItemsControl ItemsSource="{Binding Buttons}">
-                                                        <ItemsControl.ItemTemplate>
-                                                            <DataTemplate>
-                                                                <Button Content="{Binding Info.Display}"
-                                                                    Background="{Binding ButtonColor}"
-                                                                    Command="{Binding ClickCommand}"
-                                                                    Margin="2" Padding="8"
-                                                                    FontSize="16" />
-                                                            </DataTemplate>
-                                                        </ItemsControl.ItemTemplate>
-                                                        <ItemsControl.ItemsPanel>
-                                                            <ItemsPanelTemplate>
-                                                                <StackPanel Orientation="Horizontal"/>
-                                                            </ItemsPanelTemplate>
-                                                        </ItemsControl.ItemsPanel>
-                                                    </ItemsControl>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                    <ItemsControl.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <StackPanel Orientation="Horizontal"/>
-                                        </ItemsPanelTemplate>
-                                    </ItemsControl.ItemsPanel>
-                                </ItemsControl>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
-        </ScrollViewer>
         
     </Grid>
 
-
-
-    
 </Page>
