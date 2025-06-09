@@ -1,5 +1,6 @@
 ﻿using ElavatorSimilator.Models;
 using ElavatorSimilator.process;
+using ElavatorSimilator.ViewModels;
 using ElavatorSimilator.Views;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -28,6 +29,7 @@ namespace ElavatorSimilator
     public partial class PageElevator : Page
     {
 
+        private ChartViewModel _chartmotorfer_VM;
 
         public PageElevator()
         {
@@ -35,12 +37,21 @@ namespace ElavatorSimilator
             Console.WriteLine("Page Elevator");
 
             InitializeComponent();
-            
-            var serialControl = SerialSelector.Instance;
-            if (serialControl != null)
+
+            _chartmotorfer_VM = new ChartViewModel();
+            this.DataContext = _chartmotorfer_VM;
+
+           /* var timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += (s, e) =>
             {
-                serialControl.DataReceived += OnDataReceived;
-            }
+                var newValue = new Random().Next(0, 100);
+                _chartmotorfer_VM.UpdateBuffer(newValue);
+            };
+            timer.Start();*/
+
+
+            MessageBus.Instance.SerialDataReceived += OnSerialDataReceived;
 
 
             CallsDataGridInstance.ViewModel.AddCall(new Call
@@ -58,138 +69,14 @@ namespace ElavatorSimilator
 
         }
 
-
-        private void OnDataReceived(string data)
+        private void OnSerialDataReceived(SerialDataMessage msg)
         {
 
-            var processor = new JsonProcessor(SystemPanelViewInstance.ViewModel, CallsDataGridInstance.ViewModel , LocationViewInstance.ViewModel );
-            processor.Process(data);
-
-            /*if (TryParseJson(data, out JToken token))
-            {
-
-                if (token.Type == JTokenType.Object)
-                {
-                    Debug.WriteLine("Root is an object.");
-                    var obj = (JObject)token;
-
-                    var  GroupData = new List<SystemPanelData>();
-
-                    foreach (var property in obj.Properties())
-                    {
-                        Debug.WriteLine($"Key: {property.Name}, Type: {property.Value.Type}");
-
-                        if (property.Value.Type == JTokenType.Array)
-                        {
-
-                            Debug.WriteLine($"  → This is an array under key '{property.Name}'");
-
-                            var Calls = new List<Call>();
-                            Calls = property.Value.ToObject<List<Call>>();
-
-                            foreach (var item in property.Value)
-                            {
-                                if (item.Type == JTokenType.Object)
-                                {
-
-                                    Debug.WriteLine("    → Item is an object with properties:");
-                                    foreach (var field in ((JObject)item).Properties())
-                                    {
-                                        if (field.Value.Type == JTokenType.Object)
-                                        {
-                                            Debug.WriteLine($"       {field.Name} is a nested object:");
-                                            foreach (var subField in ((JObject)field.Value).Properties())
-                                            {
-                                                Debug.WriteLine($"         {subField.Name}: {subField.Value}");
-
-                                            }
-                                        }
-                                        else
-                                        {
-                                            Debug.WriteLine($"       {field.Name}: {field.Value}");
-
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    Debug.WriteLine($"    → Item is not an object: {item}");
-                                }
-                            }
-
-                            Application.Current.Dispatcher.BeginInvoke(() =>
-                            {
-
-                                SystemPanelViewInstance.ViewModel.ClearPanels();
-
-                                CallsDataGridInstance.ViewModel.Calls.Clear();
-                                foreach (var call in Calls)
-                                {
-                                    CallsDataGridInstance.ViewModel.AddCall(call);
-                                }
-
-                            });
-
-                            
-                        }
-                        else if (property.Value.Type == JTokenType.Object )
-                        {
-                            
-                            var panel = new SystemPanelData
-                            {
-                                Title = property.Name
-                            };
-
-                            Debug.WriteLine($"       {property.Name} is a nested object:");
-                            foreach (var subField in ((JObject)property.Value).Properties())
-                            {
-                                Debug.WriteLine($"         {subField.Name}: {subField.Value}");
-
-                                panel.Items.Add(new SystemItem
-                                {
-                                    Label = subField.Name,
-                                    Value = subField.Value.ToString()
-                                });
-                            }
-
-                            GroupData.Add(panel);
-
-                        }
-                    }
-
-
-                    Application.Current.Dispatcher.BeginInvoke(() =>
-                    {
-
-                        SystemPanelViewInstance.ViewModel.ClearPanels();
-                        foreach (var panel in GroupData)
-                        {  
-                            SystemPanelViewInstance.ViewModel.AddPanel(panel);
-                        }
-
-                    });
-
-                }
-
-            }*/
+            var processor = new JsonProcessor(SystemPanelViewInstance.ViewModel, CallsDataGridInstance.ViewModel , LocationViewInstance.ViewModel , ButtonsViewInstance.ViewModel , _chartmotorfer_VM );
+            processor.Process(msg.Data);
 
         }
-/*
-        private bool TryParseJson(string data, out JToken token)
-        {
-            try
-            {
-                token = JToken.Parse(data);
-                return true;
-            }
-            catch
-            {
-                token = null;
-                return false;
 
-            }
-        }
-*/
 
     }
 

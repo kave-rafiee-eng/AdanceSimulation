@@ -1,51 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\views\\callsdatagrid.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\views\\callsdatagrid.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\pageelevator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\pageelevator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PageElevator.xaml",
-              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml",
-              "RelativeDocumentMoniker": "ElavatorSimilator\\PageElevator.xaml",
-              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml",
-              "RelativeToolTip": "ElavatorSimilator\\PageElevator.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-08T13:33:54.91Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CallsDataGrid.xaml",
-              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\Views\\CallsDataGrid.xaml",
-              "RelativeDocumentMoniker": "ElavatorSimilator\\Views\\CallsDataGrid.xaml",
-              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\Views\\CallsDataGrid.xaml",
-              "RelativeToolTip": "ElavatorSimilator\\Views\\CallsDataGrid.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-08T13:23:09.961Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

@@ -11,6 +11,17 @@
             <ComboBox x:Name="SerialComboBox" Width="120" Margin="5"/>
             <Button x:Name="OpenButton" Content="Open" Width="80" Margin="5"  />
             <Button x:Name="colseButton" Content="CLose" Width="80" Margin="5"/>
+            <Ellipse Width="14" Height="14"
+             Fill="{Binding IndicatorBrush}"
+             Stroke="#CCCCCC"
+             StrokeThickness="0.5"
+             Margin="4"
+             HorizontalAlignment="Left"
+             VerticalAlignment="Center">
+                    <Ellipse.Effect>
+                        <DropShadowEffect BlurRadius="4" ShadowDepth="1" Opacity="0.2"/>
+                    </Ellipse.Effect>
+            </Ellipse>
         </StackPanel>
     </Grid>
 </UserControl>

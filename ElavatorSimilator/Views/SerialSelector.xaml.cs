@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ElavatorSimilator.process;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -14,14 +16,30 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Runtime.CompilerServices;
+
 namespace ElavatorSimilator.Views
 {
     /// <summary>
     /// Interaction logic for SerialSelector.xaml
     /// </summary>
-    public partial class SerialSelector : UserControl
+    /// 
+
+    public partial class SerialSelector : UserControl, INotifyPropertyChanged
     {
 
+        private Brush _indicatorBrush = Brushes.Gray;
+        public Brush IndicatorBrush
+        {
+            get => _indicatorBrush;
+            set
+            {
+                _indicatorBrush = value;
+                OnPropertyChanged(nameof(IndicatorBrush));
+            }
+        }
+
+        private bool DataRecievedBlink;
         public static SerialSelector Instance { get; private set; }
         public SerialPortManager portManager { get; private set; }
         public event Action<string> DataReceived;
@@ -30,6 +48,7 @@ namespace ElavatorSimilator.Views
         {
             InitializeComponent();
 
+            this.DataContext = this;
             Instance = this;
 
             SerialComboBox.ItemsSource = SerialPort.GetPortNames();
@@ -50,6 +69,33 @@ namespace ElavatorSimilator.Views
                 portManager.Close();
                 MessageBox.Show("Port Close");
             };
+
+            var serialControl = SerialSelector.Instance;
+            if (serialControl != null)
+            {
+                serialControl.DataReceived += OnDataReceived;
+            }
+
+        }
+
+        private void OnDataReceived(string data)
+        {
+            DataRecievedBlink = !DataRecievedBlink;
+
+
+            Application.Current.Dispatcher.BeginInvoke(() =>
+            {
+                if (DataRecievedBlink == true)
+                {
+                    IndicatorBrush = Brushes.Gray;
+                }
+                else
+                {
+                    IndicatorBrush = Brushes.Gold;
+                }
+            });
+
+            MessageBus.Instance.SendSerialData(data);
 
         }
 
@@ -88,6 +134,14 @@ namespace ElavatorSimilator.Views
             {
                 MessageBox.Show("پورت باز نیست یا تنظیم نشده است.");
             }
+        }
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

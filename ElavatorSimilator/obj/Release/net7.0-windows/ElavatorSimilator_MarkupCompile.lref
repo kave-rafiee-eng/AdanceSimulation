@@ -1,8 +1,13 @@
-﻿C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Release\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+﻿
 
 FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\MainWindow.xaml;;
 FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\Page1.xaml;;
 FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\PageElevator.xaml;;
 FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\PageLocation.xaml;;
-FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\SerialSelectorControl.xaml;;
+FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\PageBTN.xaml;;
+FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\Views\ButtonsView.xaml;;
+FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\Views\CallsDataGrid.xaml;;
+FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\Views\LocationView.xaml;;
+FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\Views\SerialSelector.xaml;;
+FC:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\Views\SystemPanelView.xaml;;
 

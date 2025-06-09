@@ -19,7 +19,7 @@ namespace ElavatorSimilator.Models
             0 => "\u2191", // ↑
             1 => "\u21C5", // ⇅
             2 => "\u2193", // ↓
-            _ => "-"
+            3 => "-"
         };
     }
 }

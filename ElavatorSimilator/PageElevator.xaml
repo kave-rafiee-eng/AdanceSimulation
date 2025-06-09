@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ElavatorSimilator"
       xmlns:Views="clr-namespace:ElavatorSimilator.Views"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1200"
       Title="PageElevator">
@@ -13,7 +14,7 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
 
@@ -21,12 +22,17 @@
 
             <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" Orientation="Horizontal">
 
+                
+                
                 <GroupBox Header="Location" Margin="5">
                     <Views:LocationView x:Name="LocationViewInstance" Width="200"/>
                 </GroupBox>
 
-                <GroupBox Header="Calls" Margin="5">
-                    <Views:CallsDataGrid x:Name="CallsDataGridInstance" Width="350"/>
+                <GroupBox Header="Calls  Speed" Margin="5">
+                    <StackPanel Orientation="Vertical" >
+                        <Views:CallsDataGrid Height="200" x:Name="CallsDataGridInstance" Width="350"/>
+                        <lvc:CartesianChart Height="200" Series="{Binding SeriesCollection}" />
+                    </StackPanel>
                 </GroupBox>
 
 

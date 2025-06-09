@@ -15,7 +15,7 @@ namespace ElavatorSimilator
         
         public int ReciveCounter { get; set; } = 0;
 
-        private SerialPort serialPort;
+        public SerialPort serialPort;
         //SerialPort serialPort = new SerialPort();
 
         public event Action<string> DataReceived;  // رویداد برای انتقال داده به UI

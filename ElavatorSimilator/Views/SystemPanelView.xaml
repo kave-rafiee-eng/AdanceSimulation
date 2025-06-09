@@ -9,7 +9,23 @@
     <Grid>
 
 
-        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Padding="8" Background="#F0F2F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+
+        
+        
+        <ComboBox Grid.Row="0" x:Name="SystemPanelConboBox" Width="150" Margin="5" SelectionChanged="SystemPanelConboBox_SelectionChanged" >
+            <ComboBox.Items>
+                <ComboBoxItem IsEnabled="True" IsSelected="True">Layer1</ComboBoxItem>
+                <ComboBoxItem IsEnabled="True" >Layer2</ComboBoxItem>
+                <ComboBoxItem IsEnabled="True" >Layer3</ComboBoxItem>
+            </ComboBox.Items>
+        </ComboBox>
+        
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="8" Background="#F0F2F5">
             <ItemsControl ItemsSource="{Binding Panels}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -41,7 +57,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-
+         
         <!--
         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Panels}">

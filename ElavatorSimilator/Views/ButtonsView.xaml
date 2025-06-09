@@ -8,7 +8,72 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
 
-        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- لیبل‌ها -->
+            <Label Grid.Row="0" Grid.Column="0" Content="From" HorizontalAlignment="Center" />
+            <Label Grid.Row="0" Grid.Column="1" Content="Floor" HorizontalAlignment="Center" />
+            <Label Grid.Row="0" Grid.Column="2" Content="Door1" HorizontalAlignment="Center" />
+            <Label Grid.Row="0" Grid.Column="3" Content="Door2" HorizontalAlignment="Center" />
+            <Label Grid.Row="0" Grid.Column="4" Content="Door3" HorizontalAlignment="Center" />
+
+            <!-- ComboBoxها -->
+            <ComboBox Grid.Row="1" Grid.Column="0" Width="AUTO" Margin="5" x:Name="From" >
+                <ComboBoxItem IsEnabled="True" IsSelected="True">Main</ComboBoxItem>
+                <ComboBoxItem>Cabin</ComboBoxItem>
+                <ComboBoxItem>Engine</ComboBoxItem>
+            </ComboBox>
+
+            <TextBox Grid.Row="1" Grid.Column="1" PreviewTextInput="NumberOnly_PreviewTextInput" x:Name="Floor"
+            MaxLength="5" Width="AUTO" Margin="5" />
+
+            <ComboBox Grid.Row="1" Grid.Column="2" Width="AUTO" Margin="5" x:Name="Door1" >
+                <ComboBoxItem IsEnabled="True" IsSelected="True">--</ComboBoxItem>
+                <ComboBoxItem>En</ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox Grid.Row="1" Grid.Column="3" Width="AUTO" Margin="5" x:Name="Door2" >
+                <ComboBoxItem IsEnabled="True" IsSelected="True">--</ComboBoxItem>
+                <ComboBoxItem>En</ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox Grid.Row="1" Grid.Column="4" Width="AUTO" Margin="5" x:Name="Door3" >
+                <ComboBoxItem IsEnabled="True" IsSelected="True">--</ComboBoxItem>
+                <ComboBoxItem>En</ComboBoxItem>
+            </ComboBox>
+
+            <Button  Grid.Row="2" Grid.Column="0" Background="Gold" Content="Uni" Margin="5" Tag="0" Click="CostomCall" >
+            </Button>
+
+            <Button  Grid.Row="2" Grid.Column="1" Background="Gold" Content="VIP" Margin="5" Tag="1" Click="CostomCall" >
+            </Button>
+
+            <Button  Grid.Row="2" Grid.Column="2" Background="Gold" Content="UP" Margin="5" Tag="2" Click="CostomCall"  >
+            </Button>
+
+            <Button  Grid.Row="2" Grid.Column="3" Background="Gold" Content="Down" Margin="5" Tag="3" Click="CostomCall" >
+            </Button>
+            
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="10" Background="LightSteelBlue">
                 <!-- Floors Loop -->
                 <ItemsControl ItemsSource="{Binding Floors}">

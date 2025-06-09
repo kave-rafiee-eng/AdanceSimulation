@@ -53,7 +53,7 @@ namespace ElavatorSimilator.ViewModels
                         {
                             From = 1,
                             Floor = floor,
-                            Direction = 4,
+                            Direction = 3,
                             Door = door
 
                         };
@@ -128,12 +128,12 @@ namespace ElavatorSimilator.ViewModels
             }
         }
 
-        public void UpdateButtonColor(int floor, int door, int direction, Brush newColor)
+        public void UpdateButtonColor(int from , int floor, int door, int direction, Brush newColor)
         {
             var btn = Floors
                 .SelectMany(f => f.Groups)
                 .SelectMany(g => g.Buttons)
-                .FirstOrDefault(b => b.Info.Floor == floor && b.Info.Direction == direction && b.Info.Door == door);
+                .FirstOrDefault(b => b.Info.From == from && b.Info.Floor == floor && b.Info.Direction == direction && b.Info.Door == door);
 
             if (btn != null) btn.ButtonColor = newColor;
         }
@@ -161,7 +161,7 @@ namespace ElavatorSimilator.ViewModels
 
         private void OnClick()
         {
-            ButtonColor = Brushes.Red;
+            ButtonColor = Brushes.Green;
             ButtonClicked?.Invoke(Info);
         }
 

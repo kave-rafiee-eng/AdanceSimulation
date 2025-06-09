@@ -75,8 +75,8 @@ namespace ElavatorSimilator
                     break;
             }
 
-            // بعد از انتخاب، منو بسته شود
             MenuToggleButton.IsChecked = false;
+
         }
 
 
