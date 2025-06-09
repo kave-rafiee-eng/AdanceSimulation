@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,17 @@ namespace ElavatorSimilator.process
                 var obj = (JObject)token;
                 var groupData = new List<SystemPanelData>();
 
+                if (obj.TryGetValue("LocInMeter", out JToken LocInMeterToken))
+                {
+                    if (double.TryParse(LocInMeterToken.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out double LocInMeterValue))
+                    {
+                        Application.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            _locationViewModel.LocInMeter = LocInMeterValue;
+                        });
+                    }
+                }
+
                 if (obj.TryGetValue("Ferq", out JToken ferqToken))
                 {
                     if (double.TryParse(ferqToken.ToString(), out double ferqValue))
@@ -47,6 +59,7 @@ namespace ElavatorSimilator.process
                         Application.Current.Dispatcher.BeginInvoke(() =>
                         {
                             _chartmotorferqViewModel.UpdateBuffer(ferqValue);
+                            _locationViewModel.Ferq = ferqValue;
                         });
                         
                     }

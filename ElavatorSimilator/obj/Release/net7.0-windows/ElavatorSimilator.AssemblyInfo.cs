@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ElavatorSimilator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9368e6ef407d88960b3120794fab86173dfb5a79")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ea919b393b5c2c1a90e3829dbc4830bdc2cc9eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("ElavatorSimilator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ElavatorSimilator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

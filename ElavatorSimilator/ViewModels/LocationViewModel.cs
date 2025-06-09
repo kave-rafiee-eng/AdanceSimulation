@@ -15,11 +15,15 @@ namespace ElavatorSimilator.ViewModels
         public double Goal { get; set; }
         public double PreGoal { get; set; }
 
+        private double _ferq;
         private double _y;
 
         private double _y_goal;
 
         private double _y_pregoal;
+
+        private double _LocInMeter;
+        
 
         public double Y_Goal
         {
@@ -33,7 +37,32 @@ namespace ElavatorSimilator.ViewModels
                 }
             }
         }
+        
+        public double LocInMeter
+        {
+            get => _LocInMeter;
+            set
+            {
+                if (_LocInMeter != value)
+                {
+                    _LocInMeter = value;
+                    OnPropertyChanged(nameof(LocInMeter));
+                }
+            }
+        }
 
+        public double Ferq
+        {
+            get => _ferq;
+            set
+            {
+                if (_ferq != value)
+                {
+                    _ferq = value;
+                    OnPropertyChanged(nameof(Ferq));
+                }
+            }
+        }
 
         public double Y_PreGoal
         {
