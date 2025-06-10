@@ -1,14 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Media3D;
+using static ElavatorSimilator.ViewModels.LocationViewModel;
 
 namespace ElavatorSimilator.ViewModels
 {
+
     public class LocationViewModel : INotifyPropertyChanged
     {
+
+        public ObservableCollection<ENC_Floor> _ENC_Floor { get; } = new ObservableCollection<ENC_Floor>();
+        public class ENC_Floor
+        {
+            public double Y_Floor { get; set; }
+        }
+
+        public ObservableCollection<ENC_Floor_Marker> _ENC_Floor_Marker { get; } = new ObservableCollection<ENC_Floor_Marker>();
+        public class ENC_Floor_Marker
+        {
+            public string STR_Floor_Marker { get; set; }
+            public double Y_Floor_Marker { get; set; }
+        }
+
+        public ObservableCollection<ENC_1CFUP> _ENC_1CFUP { get; } = new ObservableCollection<ENC_1CFUP>();
+        public class ENC_1CFUP
+        {
+            public double Y_1CFUP { get; set; }
+        }
+
+        public ObservableCollection<ENC_1CFUP_Marker> _ENC_1CFUP_Marker { get; } = new ObservableCollection<ENC_1CFUP_Marker>();
+        public class ENC_1CFUP_Marker
+        {
+            public string STR_1CFUP_Marker { get; set; }
+            public double Y_1CFUP_Marker { get; set; }
+        }
+
+        public void ClearENCcanvas(){
+
+            _ENC_Floor.Clear();
+            _ENC_Floor_Marker.Clear();
+            _ENC_1CFUP.Clear();
+            _ENC_1CFUP_Marker.Clear();
+        }
+        
+        public void InitializeFloorMarkers(List<double> heights)
+        {
+            _ENC_Floor.Clear();
+            _ENC_Floor_Marker.Clear();
+
+            foreach (var height in heights)
+            {
+                _ENC_Floor.Add(new ENC_Floor { Y_Floor = 400 - (50 / 3) * height });
+                _ENC_Floor_Marker.Add(new ENC_Floor_Marker { STR_Floor_Marker = height.ToString(), Y_Floor_Marker = 380 - (50 / 3) * height });
+            }
+        }
+
+
+        public void Initialize_1CFUP(List<double> heights)
+        {
+            _ENC_1CFUP.Clear();
+            _ENC_1CFUP_Marker.Clear();
+            foreach (var height in heights)
+            {
+                _ENC_1CFUP.Add(new ENC_1CFUP { Y_1CFUP = 400 - (50 / 3) * height });
+                _ENC_1CFUP_Marker.Add(new ENC_1CFUP_Marker { STR_1CFUP_Marker = height.ToString(), Y_1CFUP_Marker = 380 - (50 / 3) * height });
+            }
+        }
+
+
         public double Floor { get; set; }
         public double InFloor { get; set; }
 

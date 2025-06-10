@@ -41,6 +41,25 @@ namespace ElavatorSimilator.process
                 var obj = (JObject)token;
                 var groupData = new List<SystemPanelData>();
 
+                if (obj.TryGetValue("ENCfloor", out JToken ENCfloorToken) && ENCfloorToken is JArray dataArray)
+                {
+                    List<double> values = new List<double>();
+
+                    foreach (JToken item in dataArray)
+                    {
+                        if (double.TryParse(item.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out double value))
+                        {
+                            values.Add(value);
+
+                        }
+                    }
+
+                    Application.Current.Dispatcher.BeginInvoke(() =>
+                    {
+                        _locationViewModel.InitializeFloorMarkers(values);
+                    });
+                }
+
                 if (obj.TryGetValue("LocInMeter", out JToken LocInMeterToken))
                 {
                     if (double.TryParse(LocInMeterToken.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out double LocInMeterValue))

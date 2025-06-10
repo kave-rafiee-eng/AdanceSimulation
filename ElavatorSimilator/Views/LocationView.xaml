@@ -6,10 +6,11 @@
              xmlns:local="clr-namespace:ElavatorSimilator.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
+
     <Grid>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -20,9 +21,25 @@
 
             <Label  Content="Loc = "></Label>
             <Label  Content="{Binding LocInMeter}"></Label>
+
+
+            
         </StackPanel>
-        
-        <Canvas x:Name="Elevator" Grid.Row="1" Height="400" Width="200"  Background="LightGray" HorizontalAlignment="Left">
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            
+            <ComboBox  x:Name="SelectMode" Width="AUTO" Margin="5" SelectionChanged="SelectMode_SelectionChanged" >
+                <ComboBox.Items>
+                    <ComboBoxItem IsEnabled="True" IsSelected="True">Logic</ComboBoxItem>
+                    <ComboBoxItem IsEnabled="True" >Encoder</ComboBoxItem>
+                </ComboBox.Items>
+            </ComboBox>
+
+            <Button Background="Gold" Content="Read" Height="AUTO" Margin="5" ></Button>
+
+        </StackPanel>
+
+        <Canvas x:Name="Elevator" Grid.Row="2" Height="400" Width="200"  Background="LightGray" HorizontalAlignment="Left">
 
             <Rectangle Width="90" Height="12.5" Fill="Red"
                Stroke="Black" StrokeThickness="1"
@@ -38,10 +55,93 @@
                        Canvas.Left="50"
                Stroke="Green" StrokeThickness="4"
                Canvas.Top="{Binding Y_PreGoal}"/>
+            
+            
+            <!-- خطوط و لیبل های داینامیک -->
+            <ItemsControl ItemsSource="{Binding _ENC_1CFUP}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+
+                        <Line X1="50" Y1="{Binding Y_1CFUP}" 
+                          X2="180" Y2="{Binding Y_1CFUP}"
+                          Stroke="Red" StrokeThickness="1"/>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <ItemsControl ItemsSource="{Binding _ENC_Floor}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+
+                        <Line X1="30" Y1="{Binding Y_Floor}" 
+                          X2="150" Y2="{Binding Y_Floor}"
+                          Stroke="Black" StrokeThickness="2"/>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+
+
+
+            <ItemsControl ItemsSource="{Binding _ENC_Floor_Marker }">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="20" />
+                        <Setter Property="Canvas.Top" Value="{Binding Y_Floor_Marker}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding STR_Floor_Marker}" FontSize="10" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+
+            <ItemsControl ItemsSource="{Binding _ENC_1CFUP_Marker }">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="160" />
+                        <Setter Property="Canvas.Top" Value="{Binding Y_1CFUP_Marker}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Foreground="Red" Content="{Binding STR_1CFUP_Marker}" FontSize="10" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
         </Canvas>
 
-        
     </Grid>
-    
-    
+
 </UserControl>
