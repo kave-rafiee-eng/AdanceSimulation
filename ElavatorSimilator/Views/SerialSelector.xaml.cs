@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO.Ports;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,8 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-using System.Runtime.CompilerServices;
+using System.Windows.Threading;
 
 namespace ElavatorSimilator.Views
 {
@@ -27,6 +27,7 @@ namespace ElavatorSimilator.Views
 
     public partial class SerialSelector : UserControl, INotifyPropertyChanged
     {
+        private DispatcherTimer T_BlinkLed;
 
         private Brush _indicatorBrush = Brushes.Gray;
         public Brush IndicatorBrush
@@ -40,6 +41,7 @@ namespace ElavatorSimilator.Views
         }
 
         private bool DataRecievedBlink;
+        private bool F_recive;
         public static SerialSelector Instance { get; private set; }
         public SerialPortManager portManager { get; private set; }
         public event Action<string> DataReceived;
@@ -76,26 +78,50 @@ namespace ElavatorSimilator.Views
                 serialControl.DataReceived += OnDataReceived;
             }
 
+            T_BlinkLed = new DispatcherTimer();
+            T_BlinkLed.Interval = TimeSpan.FromMilliseconds(500); // هر نیم ثانیه
+            T_BlinkLed.Tick += updateLed;
+            T_BlinkLed.Start();
+
         }
 
         private void OnDataReceived(string data)
         {
-            DataRecievedBlink = !DataRecievedBlink;
-
-
-            Application.Current.Dispatcher.BeginInvoke(() =>
-            {
-                if (DataRecievedBlink == true)
-                {
-                    IndicatorBrush = Brushes.Gray;
-                }
-                else
-                {
-                    IndicatorBrush = Brushes.Gold;
-                }
-            });
+            F_recive = true;
 
             MessageBus.Instance.SendSerialData(data);
+
+        }
+
+        private void updateLed(object sender, EventArgs e)
+        {
+            if (F_recive)
+            {
+                F_recive = false;
+
+                DataRecievedBlink = !DataRecievedBlink;
+
+                Application.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    if (DataRecievedBlink == true)
+                    {
+                        IndicatorBrush = Brushes.Gray;
+                    }
+                    else
+                    {
+                        IndicatorBrush = Brushes.Gold;
+                    }
+                });
+            }
+            else
+            {
+                Application.Current.Dispatcher.BeginInvoke(() =>
+                {
+
+                   IndicatorBrush = Brushes.Gray;
+   
+                });
+            }
 
         }
 

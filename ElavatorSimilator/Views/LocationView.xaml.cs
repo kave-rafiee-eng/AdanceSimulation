@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +22,7 @@ namespace ElavatorSimilator.Views
     /// </summary>
     public partial class LocationView : UserControl
     {
-        public bool ModeENCactive;
+        
         public LocationViewModel ViewModel { get; set; }
         public LocationView()
         {
@@ -43,6 +44,23 @@ namespace ElavatorSimilator.Views
             DataContext = ViewModel;
 
         }
+
+        private void ReadENC(object sender, EventArgs e )
+        {
+            var serialControl = SerialSelector.Instance;
+            if (serialControl?.portManager?.serialPort?.IsOpen == true)
+            {
+
+                var jsonObject = new JsonObject
+                {
+                    ["ReadENC"] = 1,
+                };
+                string json = jsonObject.ToJsonString();
+                serialControl.Send(json);
+            }
+        }
+
+
 
         public void CanvasManage( int selectedIndex)
         {
@@ -69,7 +87,8 @@ namespace ElavatorSimilator.Views
 
                 if (selectedIndex == 0)
                 {
-                    ModeENCactive = false;
+                    ViewModel.ModeENCactive = false;
+
                     for (int i = 0; i < 8; i++)
                     {
 
@@ -101,9 +120,9 @@ namespace ElavatorSimilator.Views
                         }
                     }
                 }
-                if (selectedIndex == 0)
+                if (selectedIndex == 1)
                 {
-                    ModeENCactive = true;
+                    ViewModel.ModeENCactive = true;
 
                 }
 

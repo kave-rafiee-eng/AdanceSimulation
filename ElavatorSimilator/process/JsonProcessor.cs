@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Media3D;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ElavatorSimilator.process
@@ -24,13 +25,14 @@ namespace ElavatorSimilator.process
         private readonly LocationViewModel _locationViewModel;
         private readonly ButtonsMainViewModel _buttonsMainViewModel;
         private readonly ChartViewModel _chartmotorferqViewModel;
-        public JsonProcessor(SystemPanelViewModel panelVM, CallsViewModel callsVM, LocationViewModel locationVM, ButtonsMainViewModel ButtonsVM , ChartViewModel chatfeqVM)
+        private readonly ChartPlotViewModel _ChartPlotViewModel;
+        public JsonProcessor(SystemPanelViewModel panelVM, CallsViewModel callsVM, LocationViewModel locationVM, ButtonsMainViewModel ButtonsVM , ChartPlotViewModel chatfeqVM)
         {
             _panelViewModel = panelVM;
             _callsViewModel = callsVM;
             _locationViewModel = locationVM;
             _buttonsMainViewModel = ButtonsVM;
-            _chartmotorferqViewModel = chatfeqVM;
+            _ChartPlotViewModel = chatfeqVM;
         }
 
         public void Process(string data)
@@ -56,7 +58,42 @@ namespace ElavatorSimilator.process
 
                     Application.Current.Dispatcher.BeginInvoke(() =>
                     {
-                        _locationViewModel.InitializeFloorMarkers(values);
+                        if (_locationViewModel.ModeENCactive == true)
+                        {
+                            _locationViewModel.InitializeFloorMarkers(values);
+                        }   
+                        else
+                        {
+                            List<double> emptyValue = new List<double>();
+                            _locationViewModel.InitializeFloorMarkers(emptyValue);
+                        }
+                    });
+                }
+
+                if (obj.TryGetValue("ENC1cfup", out JToken ENC1cfupToken) && ENC1cfupToken is JArray ENC1cfupArray)
+                {
+                    List<double> values = new List<double>();
+
+                    foreach (JToken item in ENC1cfupArray)
+                    {
+                        if (double.TryParse(item.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out double value))
+                        {
+                            values.Add(value);
+
+                        }
+                    }
+
+                    Application.Current.Dispatcher.BeginInvoke(() =>
+                    {
+                        if (_locationViewModel.ModeENCactive == true)
+                        {
+                            _locationViewModel.Initialize_1CFUP(values);
+                        }
+                        else
+                        {
+                            List<double> emptyValue = new List<double>();
+                            _locationViewModel.Initialize_1CFUP(emptyValue);
+                        }
                     });
                 }
 
@@ -66,7 +103,14 @@ namespace ElavatorSimilator.process
                     {
                         Application.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            _locationViewModel.LocInMeter = LocInMeterValue;
+                            if (_locationViewModel.ModeENCactive == true)
+                            {
+                                _locationViewModel.LocInMeter = LocInMeterValue/1000;
+                                _locationViewModel.Y = 400 - (50 / 3) * LocInMeterValue/1000;
+                            }
+                            else _locationViewModel.LocInMeter = 0;
+
+
                         });
                     }
                 }
@@ -77,7 +121,11 @@ namespace ElavatorSimilator.process
                     {
                         Application.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            _chartmotorferqViewModel.UpdateBuffer(ferqValue);
+                            for (int i = 0; i < 10; i++)
+                            {
+                                _ChartPlotViewModel.AddDataPoint( 0 , ferqValue);
+                            }
+                            
                             _locationViewModel.Ferq = ferqValue;
                         });
                         
@@ -90,8 +138,17 @@ namespace ElavatorSimilator.process
                     {
                         Application.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            _locationViewModel.Goal = goalValue;
-                            _locationViewModel.Y_Goal = 350 - (goalValue * 50);
+                            if (_locationViewModel.ModeENCactive == false)
+                            {
+                                _locationViewModel.Goal = goalValue;
+                                _locationViewModel.Y_Goal = 350 - (goalValue * 50);
+                            }
+                            else
+                            {
+                                _locationViewModel.Goal = 0;
+                                _locationViewModel.Y_Goal = 0;
+                            }
+
                         });
 
                     }
@@ -103,8 +160,17 @@ namespace ElavatorSimilator.process
                     {
                         Application.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            _locationViewModel.PreGoal = preGoalValue;
-                            _locationViewModel.Y_PreGoal = 350 - (preGoalValue * 50);
+                            if (_locationViewModel.ModeENCactive == false)
+                            {
+                                _locationViewModel.PreGoal = preGoalValue;
+                                _locationViewModel.Y_PreGoal = 350 - (preGoalValue * 50);
+                            }
+                            else
+                            {
+                                _locationViewModel.PreGoal = 0;
+                                _locationViewModel.Y_PreGoal = 0;
+                            }
+
                         });
 
                     }
@@ -119,10 +185,19 @@ namespace ElavatorSimilator.process
                             
                         Application.Current.Dispatcher.BeginInvoke(() =>
                         {
-                           _locationViewModel.Floor = floorValue;
-                           _locationViewModel.InFloor = infloorValue;
+                            if (_locationViewModel.ModeENCactive == false)
+                            {
+                                _locationViewModel.Floor = floorValue;
+                                _locationViewModel.InFloor = infloorValue;
 
-                           _locationViewModel.Y = 387.5 - ((floorValue * 50) + (infloorValue - 1) * 12.5);
+                                _locationViewModel.Y = 387.5 - ((floorValue * 50) + (infloorValue - 1) * 12.5);
+                            }
+                            else
+                            {
+                                _locationViewModel.Floor = 0;
+                                _locationViewModel.InFloor = 0;
+                            }
+
                          });
 
                         

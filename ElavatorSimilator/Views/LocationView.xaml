@@ -22,8 +22,6 @@
             <Label  Content="Loc = "></Label>
             <Label  Content="{Binding LocInMeter}"></Label>
 
-
-            
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal">
@@ -35,7 +33,7 @@
                 </ComboBox.Items>
             </ComboBox>
 
-            <Button Background="Gold" Content="Read" Height="AUTO" Margin="5" ></Button>
+            <Button Click="ReadENC" Background="Gold" Content="Read" Height="AUTO" Margin="5" ></Button>
 
         </StackPanel>
 

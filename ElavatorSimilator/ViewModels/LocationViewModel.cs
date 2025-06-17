@@ -14,6 +14,7 @@ namespace ElavatorSimilator.ViewModels
     public class LocationViewModel : INotifyPropertyChanged
     {
 
+        public bool ModeENCactive { get; set; } = false;
         public ObservableCollection<ENC_Floor> _ENC_Floor { get; } = new ObservableCollection<ENC_Floor>();
         public class ENC_Floor
         {

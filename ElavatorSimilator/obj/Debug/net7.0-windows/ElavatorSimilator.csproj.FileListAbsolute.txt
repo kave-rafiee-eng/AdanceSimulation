@@ -51,3 +51,6 @@ C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\ElavatorSimilator.pdb
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\ElavatorSimilator.genruntimeconfig.cache
 C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\obj\Debug\net7.0-windows\ref\ElavatorSimilator.dll
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\bin\Debug\net7.0-windows\OxyPlot.dll
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\bin\Debug\net7.0-windows\OxyPlot.Wpf.dll
+C:\Users\kave\Desktop\VisualStdio\ElavatorSimilator\ElavatorSimilator\bin\Debug\net7.0-windows\OxyPlot.Wpf.Shared.dll
