@@ -100,16 +100,28 @@ namespace ElavatorSimilator
 
         }
 
-        double visibleDataCount = 800;
+        int visibleDataCount = 200;
 
         private void zoomInc(object sender, RoutedEventArgs e)
         {
             visibleDataCount *= 2;
+            Application.Current.Dispatcher.BeginInvoke(() =>
+            {
+                zoomMax = 0;
+                CalculateZool();
+                chartPlot_VM.PlotUpdate();
+            });
         }
 
         private void zoomDec(object sender, RoutedEventArgs e)
         {
             visibleDataCount /= 2;
+            Application.Current.Dispatcher.BeginInvoke(() =>
+            {
+                zoomMax = 0;
+                CalculateZool();
+                chartPlot_VM.PlotUpdate();
+            });
         }
 
         private void ClearChart(object sender, RoutedEventArgs e)
@@ -119,10 +131,52 @@ namespace ElavatorSimilator
 
             chartPlot_VM.AddDataPoint(0,0);
             chartPlot_VM.AddDataPoint(1,0);
+
+            Application.Current.Dispatcher.BeginInvoke(() =>
+            {
+                zoomMax = 0;
+                CalculateZool();
+                chartPlot_VM.PlotUpdate();
+
+            });
         }
 
-        
 
+        double zoomMax = 0;
+        double zoomMin = 0;
+        private void CalculateZool()
+        {
+            double totalDataCount = chartPlot_VM.GetPointCount();
+
+            double MaxZoomY = 0;
+            if (totalDataCount > visibleDataCount)
+            {
+                if (totalDataCount >= zoomMax)
+                {
+                     MaxZoomY = chartPlot_VM.GetMaxYPoint() ;
+                    MaxZoomY += MaxZoomY / 3;
+                    zoomMax = totalDataCount + visibleDataCount / 3;
+                    zoomMin = totalDataCount - visibleDataCount;
+                    chartPlot_VM.ChangeZoom(zoomMin, zoomMax, 0, MaxZoomY );
+                }
+            }
+            else
+            {
+                if (totalDataCount > zoomMax)
+                {
+                     MaxZoomY = chartPlot_VM.GetMaxYPoint();
+                    MaxZoomY += MaxZoomY / 3;
+                    zoomMax = visibleDataCount;
+                    zoomMin =0;
+                    chartPlot_VM.ChangeZoom(zoomMin, zoomMax, 0, MaxZoomY );
+                }
+            }
+
+             MaxZoomY = chartPlot_VM.GetMaxYPoint();
+            MaxZoomY += MaxZoomY / 3;
+            chartPlot_VM.ChangeZoom(zoomMin, zoomMax, 0, MaxZoomY);
+
+        }
         private void OnSerialDataReceived(SerialDataMessage msg)
         {
 
@@ -132,21 +186,7 @@ namespace ElavatorSimilator
             Application.Current.Dispatcher.BeginInvoke(() =>
             {
 
-                /*for (int i = 0; i < 50; i++)
-                {
-                    chartPlot_VM.AddDataPoint(i);
-                }*/
-
-                double totalDataCount = chartPlot_VM.GetPointCount();
-
-                if (totalDataCount > visibleDataCount)
-                {
-                    chartPlot_VM.ChangeZoom(totalDataCount - visibleDataCount, totalDataCount, 0, chartPlot_VM.GetMaxYPoint());
-                }
-                else
-                {
-                    chartPlot_VM.ChangeZoom(0, visibleDataCount, 0, chartPlot_VM.GetMaxYPoint());
-                }
+                CalculateZool();
 
                 chartPlot_VM.PlotUpdate();
 

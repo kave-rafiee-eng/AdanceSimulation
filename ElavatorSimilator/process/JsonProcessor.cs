@@ -121,14 +121,31 @@ namespace ElavatorSimilator.process
                     {
                         Application.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            for (int i = 0; i < 10; i++)
-                            {
-                                _ChartPlotViewModel.AddDataPoint( 0 , ferqValue);
-                            }
-                            
                             _locationViewModel.Ferq = ferqValue;
                         });
                         
+                    }
+                }
+
+                if (obj.TryGetValue("Line1", out JToken Line1Token))
+                {
+                    if (double.TryParse(Line1Token.ToString(), out double Line1Value))
+                    {
+                        Application.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                           _ChartPlotViewModel.AddDataPoint(0, Line1Value);
+                        });
+                    }
+                }
+
+                if (obj.TryGetValue("Line2", out JToken Line2Token))
+                {
+                    if (double.TryParse(Line2Token.ToString(), out double Line2Value))
+                    {
+                        Application.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            _ChartPlotViewModel.AddDataPoint(1, Line2Value);
+                        });
                     }
                 }
 

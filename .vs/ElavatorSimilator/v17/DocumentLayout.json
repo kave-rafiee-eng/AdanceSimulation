@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\pageelevator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\pageelevator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\process\\jsonprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\process\\jsonprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\viewmodels\\chartpllotviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\viewmodels\\chartpllotviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\pageelevator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\pageelevator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\pageelevator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\pageelevator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|c:\\users\\kave\\desktop\\visualstdio\\elavatorsimilator\\elavatorsimilator\\views\\serialselector.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C0B3332F-1ED3-4343-B8B9-7ED37BE67F7F}|ElavatorSimilator\\ElavatorSimilator.csproj|solutionrelative:elavatorsimilator\\views\\serialselector.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,67 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 155,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PageElevator.xaml.cs",
               "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml.cs",
               "RelativeDocumentMoniker": "ElavatorSimilator\\PageElevator.xaml.cs",
               "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml.cs",
               "RelativeToolTip": "ElavatorSimilator\\PageElevator.xaml.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAgwHQAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAKcAAAAAAAAAAADgv7EAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-17T05:42:07.816Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PageElevator.xaml",
-              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml",
-              "RelativeDocumentMoniker": "ElavatorSimilator\\PageElevator.xaml",
-              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\PageElevator.xaml",
-              "RelativeToolTip": "ElavatorSimilator\\PageElevator.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-17T05:12:47.884Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SerialSelector.xaml",
-              "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\Views\\SerialSelector.xaml",
-              "RelativeDocumentMoniker": "ElavatorSimilator\\Views\\SerialSelector.xaml",
-              "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\Views\\SerialSelector.xaml",
-              "RelativeToolTip": "ElavatorSimilator\\Views\\SerialSelector.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-17T05:18:27.01Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "JsonProcessor.cs",
               "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\process\\JsonProcessor.cs",
               "RelativeDocumentMoniker": "ElavatorSimilator\\process\\JsonProcessor.cs",
               "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\process\\JsonProcessor.cs",
               "RelativeToolTip": "ElavatorSimilator\\process\\JsonProcessor.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAlwH8AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAkwIkAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-17T05:10:08.429Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ChartPllotViewModel.cs",
               "DocumentMoniker": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\ViewModels\\ChartPllotViewModel.cs",
               "RelativeDocumentMoniker": "ElavatorSimilator\\ViewModels\\ChartPllotViewModel.cs",
               "ToolTip": "C:\\Users\\kave\\Desktop\\VisualStdio\\ElavatorSimilator\\ElavatorSimilator\\ViewModels\\ChartPllotViewModel.cs",
               "RelativeToolTip": "ElavatorSimilator\\ViewModels\\ChartPllotViewModel.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAqwIoAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAcwIUAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-16T14:20:38.448Z",
               "EditorCaption": ""

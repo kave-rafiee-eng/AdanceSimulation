@@ -54,8 +54,8 @@ namespace ElavatorSimilator.ViewModels
                 StrokeThickness = 2            
             };
 
-            _lineSeries[0].Points.Add(new DataPoint(5, 5));
-            _lineSeries[1].Points.Add(new DataPoint(5, 5));
+            _lineSeries[0].Points.Add(new DataPoint(0, 0));
+            _lineSeries[1].Points.Add(new DataPoint(0, 0));
 
             _plotModel.Series.Add(_lineSeries[0]);
             _plotModel.Series.Add(_lineSeries[1]);
@@ -123,15 +123,23 @@ namespace ElavatorSimilator.ViewModels
             OnPropertyChanged(nameof(PlotModel));
         }
 
-        public int GetPointCount()
+        public double GetPointCount()
         {
-            int count0 = _lineSeries[0].Points.Count;
+            /*int count0 = _lineSeries[0].Points.Count;
             int count1 = _lineSeries[1].Points.Count;
 
             if (count0 > count1)
                 return count0;  
             else
-                return count1; 
+                return count1;*/
+
+            double maxXLine1 = _lineSeries[0].Points.OrderByDescending(p => p.X).First().X;
+            double maxXLine2 = _lineSeries[1].Points.OrderByDescending(p => p.X).First().X;
+
+            if (maxXLine1 > maxXLine2)
+                return maxXLine1;
+            else
+                return maxXLine2;
         }
 
         public void ClearAllPoints( int select )
@@ -149,9 +157,9 @@ namespace ElavatorSimilator.ViewModels
             var maxYLine2 = _lineSeries[1].Points.OrderByDescending(p => p.Y).First().Y;
 
             if( maxYLine1 > maxYLine2 )
-                return maxYLine1 + 5;  
+                return maxYLine1 ;  
             else
-                return maxYLine2 + 5;
+                return maxYLine2 ;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -31,7 +31,7 @@
 
                 <GroupBox Header="Calls  Speed" Margin="5">
                     <StackPanel Orientation="Vertical" >
-                        <Views:CallsDataGrid Height="150" x:Name="CallsDataGridInstance" Width="350"/>
+
                         <!-- <lvc:CartesianChart Height="200" Series="{Binding SeriesCollection}" />
                         
                         <lvc:CartesianChart Name="cartesianChart"
@@ -48,8 +48,10 @@
                             <Button Content="Z++" Width="50" Height="20" Margin="5" Click="zoomDec" ></Button>
                             <Button Content="Clear" Width="50" Height="20" Margin="5" Click="ClearChart" ></Button>
                         </StackPanel>
-                        <oxy:PlotView Model="{Binding PlotModel}" Name="PlotView" Height="300" Width="350" />
+                        <oxy:PlotView Model="{Binding PlotModel}" Name="PlotView" Height="200" Width="350" />
 
+                        <Views:CallsDataGrid Height="150" x:Name="CallsDataGridInstance" Width="350"/>
+                        
                     </StackPanel>
                 </GroupBox>
 
