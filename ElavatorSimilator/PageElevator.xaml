@@ -23,13 +23,11 @@
 
             <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" Orientation="Horizontal">
 
-                
-                
                 <GroupBox Header="Location" Margin="5">
                     <Views:LocationView x:Name="LocationViewInstance" Width="200"/>
                 </GroupBox>
 
-                <GroupBox Header="Calls  Speed" Margin="5">
+                <GroupBox Header="Calls  Speed" Margin="2">
                     <StackPanel Orientation="Vertical" >
 
                         <!-- <lvc:CartesianChart Height="200" Series="{Binding SeriesCollection}" />
@@ -43,12 +41,43 @@
 
                         </lvc:CartesianChart>
                         -->
-                        <StackPanel Orientation="Horizontal">
-                            <Button Content="Z--" Width="50" Height="20" Margin="5" Click="zoomInc"> </Button>
-                            <Button Content="Z++" Width="50" Height="20" Margin="5" Click="zoomDec" ></Button>
-                            <Button Content="Clear" Width="50" Height="20" Margin="5" Click="ClearChart" ></Button>
+                        <ComboBox   Width="AUTO" Margin="5" x:Name="SelectChart" SelectionChanged="SelectChart_SelectionChanged" >
+                            <ComboBoxItem IsEnabled="True" IsSelected="True">Time</ComboBoxItem>
+                            <ComboBoxItem>Position</ComboBoxItem>
+                        </ComboBox>
+
+                        <StackPanel x:Name="PanelChart1" Orientation="Vertical" Visibility="Visible" >
+                            
+                            <StackPanel  Orientation="Horizontal" Visibility="Visible" >
+                                <Button Content="Z--" Width="50" Height="20" Margin="5" Click="zoomInc"></Button>
+                                <Button Content="Z++" Width="50" Height="20" Margin="5" Click="zoomDec" ></Button>
+                                <Button Content="Clear" Width="50" Height="20" Margin="5" Click="ClearChart" ></Button>
+                            </StackPanel>
+
+                            <oxy:PlotView Model="{Binding PlotModel}" Name="PlotView" Height="200" Width="350" />
+
                         </StackPanel>
-                        <oxy:PlotView Model="{Binding PlotModel}" Name="PlotView" Height="200" Width="350" />
+
+                        <StackPanel x:Name="PanelChart2" Orientation="Vertical" Visibility="Collapsed" >
+                            <StackPanel  Orientation="Horizontal" Visibility="Visible" >
+                                <Label Content="Min :"></Label>
+                                <TextBox LostFocus="PosMin_LostFocus" Width="50" x:Name="PosMin"
+                                    MaxLength="5" Text="0" Margin="5" />
+
+                                <Label Content="Max :"></Label>
+                                <TextBox LostFocus="PosMax_LostFocus" Width="50" x:Name="PosMax"
+                                    MaxLength="5" Text="0" Margin="5" />
+
+                                <Button Content="Z--" Width="50" Height="20" Margin="5" Click="Plot2zoomInc"></Button>
+                                <Button Content="Z++" Width="50" Height="20" Margin="5" Click="Plot2zoomDec" ></Button>
+
+                                <Button Content="Clear" Width="50" Height="20" Margin="5" Click="ClearChart2" ></Button>
+                            </StackPanel>
+
+                            <oxy:PlotView Model="{Binding PlotModel2}" Name="PlotView2" Height="200" Width="350" />
+
+                        </StackPanel>
+
 
                         <Views:CallsDataGrid Height="150" x:Name="CallsDataGridInstance" Width="350"/>
                         

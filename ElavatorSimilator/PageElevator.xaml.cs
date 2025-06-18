@@ -84,21 +84,134 @@ namespace ElavatorSimilator
 
 
             T_update = new DispatcherTimer();
-            T_update.Interval = TimeSpan.FromMilliseconds(50); // هر نیم ثانیه
+            T_update.Interval = TimeSpan.FromMilliseconds(2000); // هر نیم ثانیه
             T_update.Tick += testupdateChart;
             T_update.Start();
 
             //--------------------------------------
 
+
+
             chartPlot_VM = new ChartPlotViewModel();
             this.DataContext = chartPlot_VM;
+            
 
         }
 
+        int ChartSelected = 0;
+        private void SelectChart_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SelectChart.SelectedItem is ComboBoxItem selectedItem)
+            {
+                int SlectedIndex = SelectChart.SelectedIndex;
+                ChartSelected = SlectedIndex;
+                // حالا می‌تونی اینجا نمودارها یا StackPanelها رو تغییر بدی:
+                if (SlectedIndex == 0)
+                {
+                    if (PanelChart2 != null && PanelChart1 != null)
+                    {
+                        PanelChart1.Visibility = Visibility.Visible;
+                        PanelChart2.Visibility = Visibility.Collapsed;
+                    }
+
+                }
+                else if (SlectedIndex == 1 )
+                {
+                    
+                    if (PanelChart1 != null && PanelChart2 != null)
+                    {
+                        PanelChart2.Visibility = Visibility.Visible;
+                        PanelChart1.Visibility = Visibility.Collapsed;
+                    }
+                }
+            }
+
+           
+        }
+
+        int test = 0;
         private void testupdateChart(object sender, EventArgs e)
         {
+            test = 1 - test;
 
         }
+        //----------------------------------------------------------
+
+        double visibleDataCountPlot2 = 2000;
+        double Plot2_ZoomX_Min = 0;
+        double Plot2_ZoomX_Max = 0;
+
+        double Plot2_ZoomY_Min = 0;
+        double Plot2_ZoomY_Max = 1;
+
+        private void PosMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string value = PosMin.Text;
+            if (double.TryParse(value, out double result))
+            {
+
+                Plot2_ZoomX_Min = result * 1000 ;
+                chartPlot_VM.ChangeZoom(1, Plot2_ZoomX_Min , Plot2_ZoomX_Max, Plot2_ZoomY_Min , Plot2_ZoomY_Max);
+
+                chartPlot_VM.PlotUpdate(1);
+            }
+            else
+            {
+                MessageBox.Show("لطفاً یک عدد معتبر وارد کنید.");
+            }
+        }
+
+        private void PosMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string value = PosMax.Text;
+            if (double.TryParse(value, out double result))
+            {
+
+                Plot2_ZoomX_Max = result * 1000;
+                chartPlot_VM.ChangeZoom(1, Plot2_ZoomX_Min, Plot2_ZoomX_Max, Plot2_ZoomY_Min, Plot2_ZoomY_Max);
+
+                chartPlot_VM.PlotUpdate(1);
+            }
+            else
+            {
+                MessageBox.Show("لطفاً یک عدد معتبر وارد کنید.");
+            }
+        }
+
+        private void ClearChart2(object sender, RoutedEventArgs e)
+        {
+            chartPlot_VM.ClearAllPoints(1, 0);
+            chartPlot_VM.ClearAllPoints(1, 1);
+
+            chartPlot_VM.AddDataPoint(1, 0, 0, 0);
+            chartPlot_VM.AddDataPoint(1, 1, 0, 0);
+
+            Application.Current.Dispatcher.BeginInvoke(() =>
+            {
+                chartPlot_VM.PlotUpdate(1);
+
+            });
+        }
+
+        private void Plot2zoomInc(object sender, RoutedEventArgs e)
+        {
+            visibleDataCountPlot2 *= 2;
+            Application.Current.Dispatcher.BeginInvoke(() =>
+            {
+
+            });
+        }
+
+        private void Plot2zoomDec(object sender, RoutedEventArgs e)
+        {
+            visibleDataCountPlot2 /= 2;
+            Application.Current.Dispatcher.BeginInvoke(() =>
+            {
+
+            });
+        }
+
+        //----------------------------------------------------------
 
         int visibleDataCount = 200;
 
@@ -109,7 +222,7 @@ namespace ElavatorSimilator
             {
                 zoomMax = 0;
                 CalculateZool();
-                chartPlot_VM.PlotUpdate();
+                chartPlot_VM.PlotUpdate( 0 );
             });
         }
 
@@ -120,23 +233,23 @@ namespace ElavatorSimilator
             {
                 zoomMax = 0;
                 CalculateZool();
-                chartPlot_VM.PlotUpdate();
+                chartPlot_VM.PlotUpdate( 0 );
             });
         }
 
         private void ClearChart(object sender, RoutedEventArgs e)
         {
-            chartPlot_VM.ClearAllPoints(0);
-            chartPlot_VM.ClearAllPoints(1);
+            chartPlot_VM.ClearAllPoints( 0 , 0);
+            chartPlot_VM.ClearAllPoints(0 , 1);
 
-            chartPlot_VM.AddDataPoint(0,0);
-            chartPlot_VM.AddDataPoint(1,0);
+            chartPlot_VM.AddDataPoint( 0 , 0 , 0 ,0  );
+            chartPlot_VM.AddDataPoint( 0 , 1, 0 , 0 );
 
             Application.Current.Dispatcher.BeginInvoke(() =>
             {
                 zoomMax = 0;
                 CalculateZool();
-                chartPlot_VM.PlotUpdate();
+                chartPlot_VM.PlotUpdate(0);
 
             });
         }
@@ -146,35 +259,35 @@ namespace ElavatorSimilator
         double zoomMin = 0;
         private void CalculateZool()
         {
-            double totalDataCount = chartPlot_VM.GetPointCount();
+            double totalDataCount = chartPlot_VM.GetPointCount(0);
 
             double MaxZoomY = 0;
             if (totalDataCount > visibleDataCount)
             {
                 if (totalDataCount >= zoomMax)
                 {
-                     MaxZoomY = chartPlot_VM.GetMaxYPoint() ;
+                     MaxZoomY = chartPlot_VM.GetMaxYPoint(0) ;
                     MaxZoomY += MaxZoomY / 3;
                     zoomMax = totalDataCount + visibleDataCount / 3;
                     zoomMin = totalDataCount - visibleDataCount;
-                    chartPlot_VM.ChangeZoom(zoomMin, zoomMax, 0, MaxZoomY );
+                    chartPlot_VM.ChangeZoom( 0, zoomMin, zoomMax, 0, MaxZoomY );
                 }
             }
             else
             {
                 if (totalDataCount > zoomMax)
                 {
-                     MaxZoomY = chartPlot_VM.GetMaxYPoint();
+                     MaxZoomY = chartPlot_VM.GetMaxYPoint(0);
                     MaxZoomY += MaxZoomY / 3;
                     zoomMax = visibleDataCount;
                     zoomMin =0;
-                    chartPlot_VM.ChangeZoom(zoomMin, zoomMax, 0, MaxZoomY );
+                    chartPlot_VM.ChangeZoom( 0 , zoomMin, zoomMax, 0, MaxZoomY );
                 }
             }
 
-             MaxZoomY = chartPlot_VM.GetMaxYPoint();
+             MaxZoomY = chartPlot_VM.GetMaxYPoint(0);
             MaxZoomY += MaxZoomY / 3;
-            chartPlot_VM.ChangeZoom(zoomMin, zoomMax, 0, MaxZoomY);
+            chartPlot_VM.ChangeZoom( 0 , zoomMin, zoomMax, 0, MaxZoomY);
 
         }
         private void OnSerialDataReceived(SerialDataMessage msg)
@@ -188,7 +301,18 @@ namespace ElavatorSimilator
 
                 CalculateZool();
 
-                chartPlot_VM.PlotUpdate();
+                double Location = LocationViewInstance.ViewModel.LocationInMiles;
+
+                Plot2_ZoomY_Max = chartPlot_VM.GetMaxYPoint(1);
+                Plot2_ZoomY_Max += Plot2_ZoomY_Max / 3;
+
+                Plot2_ZoomX_Max = Location + visibleDataCountPlot2;
+                Plot2_ZoomX_Min = Location - visibleDataCountPlot2;
+                chartPlot_VM.ChangeZoom( 1 , Plot2_ZoomX_Min, Plot2_ZoomX_Max, Plot2_ZoomY_Min, Plot2_ZoomY_Max);
+
+                
+
+                chartPlot_VM.PlotUpdate(ChartSelected);
 
             });
 

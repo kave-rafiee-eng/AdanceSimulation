@@ -97,6 +97,14 @@ namespace ElavatorSimilator.process
                     });
                 }
 
+                double Loc = 0;
+                double Line1 = 0;
+                double Line2 = 0;
+
+                bool F_Loc = false;
+                bool F_Line1 = false;
+                bool F_Line2 = false;
+
                 if (obj.TryGetValue("LocInMeter", out JToken LocInMeterToken))
                 {
                     if (double.TryParse(LocInMeterToken.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out double LocInMeterValue))
@@ -110,6 +118,9 @@ namespace ElavatorSimilator.process
                             }
                             else _locationViewModel.LocInMeter = 0;
 
+                            _locationViewModel.LocationInMiles = LocInMeterValue;
+                            Loc = LocInMeterValue;
+                            F_Loc = true;
 
                         });
                     }
@@ -133,8 +144,11 @@ namespace ElavatorSimilator.process
                     {
                         Application.Current.Dispatcher.BeginInvoke(() =>
                         {
-                           _ChartPlotViewModel.AddDataPoint(0, Line1Value);
+                           _ChartPlotViewModel.AddDataPoint( 0 , 0, Line1Value , 0 );
                         });
+
+                        Line1 = Line1Value;
+                        F_Line1 = true;
                     }
                 }
 
@@ -144,10 +158,27 @@ namespace ElavatorSimilator.process
                     {
                         Application.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            _ChartPlotViewModel.AddDataPoint(1, Line2Value);
+                            _ChartPlotViewModel.AddDataPoint( 0 , 1, Line2Value , 0);
+
                         });
+
+                        Line2 = Line2Value;
+                        F_Line2 = true;
                     }
                 }
+
+                Application.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    if (F_Loc && F_Line1)
+                    {
+                        _ChartPlotViewModel.AddDataPoint(1, 0, Line1, Loc);
+                    }
+
+                    if (F_Loc && F_Line2)
+                    {
+                        _ChartPlotViewModel.AddDataPoint(1, 1, Line2, Loc);
+                    }
+                });
 
                 if (obj.TryGetValue("Goal", out JToken goalToken) )
                 {
